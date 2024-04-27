@@ -80,7 +80,7 @@
             this.gunaCirclePictureBox5 = new Guna.UI.WinForms.GunaCirclePictureBox();
             this.gunaPictureBox1 = new Guna.UI.WinForms.GunaPictureBox();
             this.gunaTileButton3 = new Guna.UI.WinForms.GunaTileButton();
-            this.gunaTileButton2 = new Guna.UI.WinForms.GunaTileButton();
+            this.btnSignUp = new Guna.UI.WinForms.GunaTileButton();
             this.gunaTileButton1 = new Guna.UI.WinForms.GunaTileButton();
             this.panel1.SuspendLayout();
             this.gunaPanel1.SuspendLayout();
@@ -641,28 +641,29 @@
             this.gunaTileButton3.TabIndex = 5;
             this.gunaTileButton3.Text = "Contact";
             // 
-            // gunaTileButton2
+            // btnSignUp
             // 
-            this.gunaTileButton2.AnimationHoverSpeed = 0.07F;
-            this.gunaTileButton2.AnimationSpeed = 0.03F;
-            this.gunaTileButton2.BaseColor = System.Drawing.Color.Black;
-            this.gunaTileButton2.BorderColor = System.Drawing.Color.Black;
-            this.gunaTileButton2.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.gunaTileButton2.FocusedColor = System.Drawing.Color.Empty;
-            this.gunaTileButton2.Font = new System.Drawing.Font("Showcard Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaTileButton2.ForeColor = System.Drawing.Color.White;
-            this.gunaTileButton2.Image = ((System.Drawing.Image)(resources.GetObject("gunaTileButton2.Image")));
-            this.gunaTileButton2.ImageSize = new System.Drawing.Size(52, 52);
-            this.gunaTileButton2.Location = new System.Drawing.Point(3, 483);
-            this.gunaTileButton2.Name = "gunaTileButton2";
-            this.gunaTileButton2.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
-            this.gunaTileButton2.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.gunaTileButton2.OnHoverForeColor = System.Drawing.Color.White;
-            this.gunaTileButton2.OnHoverImage = null;
-            this.gunaTileButton2.OnPressedColor = System.Drawing.Color.Black;
-            this.gunaTileButton2.Size = new System.Drawing.Size(266, 127);
-            this.gunaTileButton2.TabIndex = 5;
-            this.gunaTileButton2.Text = "Register";
+            this.btnSignUp.AnimationHoverSpeed = 0.07F;
+            this.btnSignUp.AnimationSpeed = 0.03F;
+            this.btnSignUp.BaseColor = System.Drawing.Color.Black;
+            this.btnSignUp.BorderColor = System.Drawing.Color.Black;
+            this.btnSignUp.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnSignUp.FocusedColor = System.Drawing.Color.Empty;
+            this.btnSignUp.Font = new System.Drawing.Font("Showcard Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSignUp.ForeColor = System.Drawing.Color.White;
+            this.btnSignUp.Image = ((System.Drawing.Image)(resources.GetObject("btnSignUp.Image")));
+            this.btnSignUp.ImageSize = new System.Drawing.Size(52, 52);
+            this.btnSignUp.Location = new System.Drawing.Point(3, 483);
+            this.btnSignUp.Name = "btnSignUp";
+            this.btnSignUp.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
+            this.btnSignUp.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btnSignUp.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnSignUp.OnHoverImage = null;
+            this.btnSignUp.OnPressedColor = System.Drawing.Color.Black;
+            this.btnSignUp.Size = new System.Drawing.Size(266, 127);
+            this.btnSignUp.TabIndex = 5;
+            this.btnSignUp.Text = "Register";
+            this.btnSignUp.Click += new System.EventHandler(this.btnSignUp_Click);
             // 
             // gunaTileButton1
             // 
@@ -696,7 +697,7 @@
             this.ClientSize = new System.Drawing.Size(1024, 632);
             this.Controls.Add(this.gunaPictureBox1);
             this.Controls.Add(this.gunaTileButton3);
-            this.Controls.Add(this.gunaTileButton2);
+            this.Controls.Add(this.btnSignUp);
             this.Controls.Add(this.gunaTileButton1);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Name = "FirstForm";
@@ -730,7 +731,7 @@
 
         #endregion
         private Guna.UI.WinForms.GunaTileButton gunaTileButton1;
-        private Guna.UI.WinForms.GunaTileButton gunaTileButton2;
+        private Guna.UI.WinForms.GunaTileButton btnSignUp;
         private Guna.UI.WinForms.GunaTileButton gunaTileButton3;
         private Guna.UI.WinForms.GunaPictureBox gunaPictureBox1;
         private System.Windows.Forms.Panel panel1;

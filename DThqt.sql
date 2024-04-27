@@ -10,9 +10,12 @@ CREATE TABLE QUYENNGUOIDUNG(
 )
 go
 
+insert into QUYENNGUOIDUNG(QuyenNguoiDung, TenQuyen) values ('Quyen1', 'GiaoVien')
+insert into QUYENNGUOIDUNG(QuyenNguoiDung, TenQuyen) values ('Quyen2', 'HocVien')
+
 --Bảng Tài Khoản
 CREATE TABLE TAIKHOAN(
-	MaTaiKhoan int constraint PK_TAIKHOAN primary key,
+	MaTaiKhoan varchar(20)  constraint PK_TAIKHOAN primary key,
     TenDangNhap varchar(20) unique,
     MatKhau varchar(20) NOT NULL,
     QuyenNguoiDung varchar(20) NOT NULL,
@@ -30,7 +33,7 @@ CREATE TABLE GIAOVIEN(
 	DiaChi nvarchar(100) NOT NULL,
 	SoDienThoai varchar(20) CHECK(len(SoDienThoai) = 10),
 	Email varchar(50) NOT NULL, 
-	MaTK int constraint FK_GIAOVIEN_TAIKHOAN foreign key references TAIKHOAN(MaTaiKhoan)
+	MaTK varchar(20)
 )
 go
 
@@ -89,10 +92,11 @@ CREATE TABLE HOCVIEN(
 	GioiTinh nvarchar(20) NOT NULL, 
 	DiaChi nvarchar(100) NOT NULL,
 	SoDienThoai varchar(20) CHECK(len(SoDienThoai) = 10),
-	CCCD varchar(50) CHECK(len(CCCD) = 12),
-	MaTK int constraint FK_HOCVIEN_TAIKHOAN foreign key references TAIKHOAN(MaTaiKhoan)
+	Email varchar(50) NOT NULL, 
+	 MaTk varchar(20)
 )
 go
+
 
 --Bảng Thông Báo
 CREATE TABLE THONGBAO(
@@ -233,12 +237,13 @@ CREATE TRIGGER TG_TuDongThemTaiKhoanGiaoVien ON GIAOVIEN
 AFTER INSERT
 AS
 BEGIN
-	DECLARE @MaTK int
+	DECLARE @MaTK varchar
 	DECLARE @TenDN varchar(20)
 	DECLARE @MK varchar(20)
 	DECLARE @Quyen varchar(20)
-	
-	SELECT @MaTK = 'TK' + i.MaGiaoVien,
+	DECLARE @MaGV varchar(20)
+	SELECT @MaGV = i.MaGiaoVien,
+	@MaTK = 'TK' + CAST(i.MaGiaoVien as varchar),
 		@TenDN = i.HoTen,
 		@MK = '123',
 		@Quyen = 'Quyen1'
@@ -249,24 +254,28 @@ BEGIN
 		DECLARE @row int
 		select @row = COUNT(*) FROM TAIKHOAN WHERE TAIKHOAN.TenDangNhap = @TenDN
 		SET @row = @row + 1
-		SET @TenDN = @TenDN + @row
+		SET @TenDN = @TenDN + CAST(@row as varchar)
 	END
 
 	INSERT INTO TAIKHOAN (MaTaiKhoan, TenDangNhap, MatKhau, QuyenNguoiDung) VALUES (@MaTK, @TenDN, @MK, @Quyen)
+	UPDATE GIAOVIEN SET MaTK = @MaTK WHERE MaGiaoVien = @MaGV
 END
 GO
+
 
 --trigger tự động tạo tài khoản khi có thêm một học viên
 CREATE TRIGGER TG_TuDongThemTaiKhoanHocVien ON HOCVIEN
 AFTER INSERT
 AS
 BEGIN
-	DECLARE @MaTK int
+	DECLARE @MaTK varchar(20)
 	DECLARE @TenDN varchar(20)
 	DECLARE @MK varchar(20)
 	DECLARE @Quyen varchar(20)
-	
-	SELECT @MaTK = 'TK' + i.MaHocVien,
+	DECLARE @MaHV varchar(20)
+
+	SELECT @MaHV = i.MaHocVien,
+	@MaTK = 'TK' + CAST( i.MaHocVien as varchar), 
 		@TenDN = i.TenHocVien,
 		@MK = '123',
 		@Quyen = 'Quyen2'
@@ -277,10 +286,11 @@ BEGIN
 		DECLARE @row int
 		select @row = COUNT(*) FROM TAIKHOAN WHERE TAIKHOAN.TenDangNhap = @TenDN
 		SET @row = @row + 1
-		SET @TenDN = @TenDN + @row
+		SET @TenDN = @TenDN + CAST(@row as varchar)
 	END
 
 	INSERT INTO TAIKHOAN (MaTaiKhoan, TenDangNhap, MatKhau, QuyenNguoiDung) VALUES (@MaTK, @TenDN, @MK, @Quyen)
+	UPDATE HOCVIEN SET MaTK = @MaTK WHERE MaHocVien = @MaHV
 END
 GO
 
@@ -329,6 +339,71 @@ GO
 
 --------------------------------------------------------------------------------
 -- TẠO CHỨC NĂNG
+
+--proc lấy phân quyền
+CREATE or ALTER PROCEDURE dbo.proc_LayRole(@loginname sysname)
+AS
+BEGIN
+	select R.Name as Role
+	from sys.database_principals P 
+		left outer join sys.database_role_members RM on P.principal_id=RM.member_principal_id 
+		left outer join sys.database_principals R on R.principal_id=RM.role_principal_id
+	WHERE P.name = @loginname
+END
+go
+
+-- Trigger tạo Login, User và gán quyền cho User sau khi tiến hành tạo tài khoản mới
+CREATE or ALTER TRIGGER tg_TaoTaiKhoan ON TAIKHOAN
+AFTER INSERT
+AS
+BEGIN
+	DECLARE @username varchar(20);
+	DECLARE @pass varchar(20);
+	DECLARE @quyen varchar(20);
+	DECLARE @sql varchar(2000);
+ 
+	SELECT @username = i.TenDangNhap, @pass = i.MatKhau, @quyen = i.QuyenNguoiDung FROM inserted i
+	SET @sql = 'CREATE LOGIN [' + @username + '] WITH PASSWORD=''' + @pass + ''', DEFAULT_DATABASE= HQT, CHECK_EXPIRATION=OFF, CHECK_POLICY=OFF' 
+	EXEC (@sql);
+ 
+	SET @sql = 'CREATE USER ' + @username + ' FOR LOGIN ' + @username
+	EXEC (@sql);
+ 
+	IF(@quyen = '1')
+	BEGIN
+		EXEC sp_addrolemember 'role_HocVien', @username ;
+	END
+ 
+	ELSE IF(@quyen = '2')
+	BEGIN
+		EXEC sp_addrolemember 'role_GiaoVien', @username ;
+	END
+ 
+	ELSE IF(@quyen = '0')
+	BEGIN
+		SET @sql = 'ALTER SERVER ROLE sysadmin ADD MEMBER ' + @username
+		EXEC (@sql);
+	END
+END
+go
+
+---- Procedure Thêm tài khoản
+--CREATE or ALTER PROCEDURE proc_ThemTaiKhoan
+--	@TenDangNhap varchar(20),
+--	@MatKhau varchar(20),
+--	@QuyenNguoiDung varchar(20)
+--AS
+--BEGIN
+--	Begin Try
+--		INSERT INTO dbo.TAIKHOAN VALUES(@TenDangNhap, @MatKhau, @QuyenNguoiDung)
+--	End try
+--	Begin catch
+--		declare @mess varchar(max)
+--		set @mess=ERROR_MESSAGE()
+--		Raiserror(@mess, 16, 1)
+--	end catch
+--END
+--GO
 
 -- procedure quản lý tài khoản
 CREATE OR ALTER PROC QUANLYTAIKHOAN

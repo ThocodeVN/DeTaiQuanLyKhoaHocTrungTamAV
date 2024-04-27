@@ -27,5 +27,13 @@ namespace QuanLyLopHocTrungTamAV
             this.Show();
             form.ShowDialog();
         }
+
+        private void btnSignUp_Click(object sender, EventArgs e)
+        {
+            FRegister f = new FRegister();
+            this.Hide();
+            this.Show();
+            f.ShowDialog();
+        }
     }
 }

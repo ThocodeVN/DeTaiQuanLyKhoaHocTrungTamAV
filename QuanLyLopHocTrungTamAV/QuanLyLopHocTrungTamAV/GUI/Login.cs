@@ -23,7 +23,22 @@ namespace QuanLyLopHocTrungTamAV.GUI
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            login = new LoginDTO(txt_Username.Text.Trim(), txt_Password.Text.Trim());
+            string role = "";
+            if (rbtnAdmin.Checked)
+            {
+                role = "Quyen3";
+            }
+
+            if (rbtnStudent.Checked)
+            {
+                role = "Quyen1";
+            }    
+
+            if (rbtnTeacher.Checked)
+            {
+                role = "Quyen2";
+            }    
+            login = new LoginDTO(txt_Username.Text.Trim(), txt_Password.Text.Trim(), role);
             string result = loginDAO.Login(login);
             Student st = new Student();
             if(result == "Quyen1")
@@ -41,11 +56,6 @@ namespace QuanLyLopHocTrungTamAV.GUI
             {
                 MessageBox.Show(result);
             }    
-        }
-
-        private void btnSignUp_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
