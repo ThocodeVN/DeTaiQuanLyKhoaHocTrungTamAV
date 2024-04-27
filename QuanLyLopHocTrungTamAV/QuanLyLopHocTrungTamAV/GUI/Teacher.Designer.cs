@@ -1,4 +1,4 @@
-﻿namespace QuanLyLopHocTrungTamAV.GUI.Teacher
+﻿namespace QuanLyLopHocTrungTamAV.GUI
 {
     partial class Teacher
     {

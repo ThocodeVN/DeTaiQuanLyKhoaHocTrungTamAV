@@ -37,7 +37,11 @@
             this.gunaCirclePictureBox2 = new Guna.UI.WinForms.GunaCirclePictureBox();
             this.txt_Password = new Guna.UI.WinForms.GunaLineTextBox();
             this.gunaPictureBox1 = new Guna.UI.WinForms.GunaPictureBox();
-            this.gunaGradientButton1 = new Guna.UI.WinForms.GunaGradientButton();
+            this.btnLogin = new Guna.UI.WinForms.GunaGradientButton();
+            this.rbtnStudent = new Guna.UI.WinForms.GunaRadioButton();
+            this.rbtnTeacher = new Guna.UI.WinForms.GunaRadioButton();
+            this.rbtnAdmin = new Guna.UI.WinForms.GunaRadioButton();
+            this.btnSignUp = new Guna.UI.WinForms.GunaGradientButton();
             this.gunaGradient2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gunaCirclePictureBox1)).BeginInit();
             this.gunaGradient2Panel2.SuspendLayout();
@@ -62,7 +66,7 @@
             this.gunaGradient2Panel1.Controls.Add(this.txt_Username);
             this.gunaGradient2Panel1.GradientColor1 = System.Drawing.Color.White;
             this.gunaGradient2Panel1.GradientColor2 = System.Drawing.Color.White;
-            this.gunaGradient2Panel1.Location = new System.Drawing.Point(462, 133);
+            this.gunaGradient2Panel1.Location = new System.Drawing.Point(462, 155);
             this.gunaGradient2Panel1.Name = "gunaGradient2Panel1";
             this.gunaGradient2Panel1.Size = new System.Drawing.Size(326, 41);
             this.gunaGradient2Panel1.TabIndex = 5;
@@ -144,31 +148,93 @@
             this.gunaPictureBox1.TabIndex = 2;
             this.gunaPictureBox1.TabStop = false;
             // 
-            // gunaGradientButton1
+            // btnLogin
             // 
-            this.gunaGradientButton1.AnimationHoverSpeed = 0.07F;
-            this.gunaGradientButton1.AnimationSpeed = 0.03F;
-            this.gunaGradientButton1.BaseColor1 = System.Drawing.Color.LightCyan;
-            this.gunaGradientButton1.BaseColor2 = System.Drawing.Color.Crimson;
-            this.gunaGradientButton1.BorderColor = System.Drawing.Color.Black;
-            this.gunaGradientButton1.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.gunaGradientButton1.FocusedColor = System.Drawing.Color.Empty;
-            this.gunaGradientButton1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.gunaGradientButton1.ForeColor = System.Drawing.Color.White;
-            this.gunaGradientButton1.Image = ((System.Drawing.Image)(resources.GetObject("gunaGradientButton1.Image")));
-            this.gunaGradientButton1.ImageSize = new System.Drawing.Size(20, 20);
-            this.gunaGradientButton1.Location = new System.Drawing.Point(543, 313);
-            this.gunaGradientButton1.Name = "gunaGradientButton1";
-            this.gunaGradientButton1.OnHoverBaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(145)))), ((int)(((byte)(221)))));
-            this.gunaGradientButton1.OnHoverBaseColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(85)))), ((int)(((byte)(255)))));
-            this.gunaGradientButton1.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.gunaGradientButton1.OnHoverForeColor = System.Drawing.Color.White;
-            this.gunaGradientButton1.OnHoverImage = null;
-            this.gunaGradientButton1.OnPressedColor = System.Drawing.Color.Black;
-            this.gunaGradientButton1.Size = new System.Drawing.Size(160, 42);
-            this.gunaGradientButton1.TabIndex = 7;
-            this.gunaGradientButton1.Text = "Login";
-            this.gunaGradientButton1.Click += new System.EventHandler(this.gunaGradientButton1_Click);
+            this.btnLogin.AnimationHoverSpeed = 0.07F;
+            this.btnLogin.AnimationSpeed = 0.03F;
+            this.btnLogin.BaseColor1 = System.Drawing.Color.LightCyan;
+            this.btnLogin.BaseColor2 = System.Drawing.Color.Crimson;
+            this.btnLogin.BorderColor = System.Drawing.Color.Black;
+            this.btnLogin.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnLogin.FocusedColor = System.Drawing.Color.Empty;
+            this.btnLogin.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnLogin.ForeColor = System.Drawing.Color.White;
+            this.btnLogin.Image = ((System.Drawing.Image)(resources.GetObject("btnLogin.Image")));
+            this.btnLogin.ImageSize = new System.Drawing.Size(20, 20);
+            this.btnLogin.Location = new System.Drawing.Point(543, 313);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.OnHoverBaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(145)))), ((int)(((byte)(221)))));
+            this.btnLogin.OnHoverBaseColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(85)))), ((int)(((byte)(255)))));
+            this.btnLogin.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btnLogin.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnLogin.OnHoverImage = null;
+            this.btnLogin.OnPressedColor = System.Drawing.Color.Black;
+            this.btnLogin.Size = new System.Drawing.Size(160, 42);
+            this.btnLogin.TabIndex = 7;
+            this.btnLogin.Text = "Login";
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            // 
+            // rbtnStudent
+            // 
+            this.rbtnStudent.BaseColor = System.Drawing.SystemColors.Control;
+            this.rbtnStudent.CheckedOffColor = System.Drawing.Color.Gray;
+            this.rbtnStudent.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.rbtnStudent.FillColor = System.Drawing.Color.White;
+            this.rbtnStudent.Location = new System.Drawing.Point(484, 82);
+            this.rbtnStudent.Name = "rbtnStudent";
+            this.rbtnStudent.Size = new System.Drawing.Size(85, 20);
+            this.rbtnStudent.TabIndex = 8;
+            this.rbtnStudent.Text = "Học Viên";
+            // 
+            // rbtnTeacher
+            // 
+            this.rbtnTeacher.BaseColor = System.Drawing.SystemColors.Control;
+            this.rbtnTeacher.CheckedOffColor = System.Drawing.Color.Gray;
+            this.rbtnTeacher.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.rbtnTeacher.FillColor = System.Drawing.Color.White;
+            this.rbtnTeacher.Location = new System.Drawing.Point(647, 82);
+            this.rbtnTeacher.Name = "rbtnTeacher";
+            this.rbtnTeacher.Size = new System.Drawing.Size(89, 20);
+            this.rbtnTeacher.TabIndex = 9;
+            this.rbtnTeacher.Text = "Giáo Viên";
+            // 
+            // rbtnAdmin
+            // 
+            this.rbtnAdmin.BaseColor = System.Drawing.SystemColors.Control;
+            this.rbtnAdmin.CheckedOffColor = System.Drawing.Color.Gray;
+            this.rbtnAdmin.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.rbtnAdmin.FillColor = System.Drawing.Color.White;
+            this.rbtnAdmin.Location = new System.Drawing.Point(553, 117);
+            this.rbtnAdmin.Name = "rbtnAdmin";
+            this.rbtnAdmin.Size = new System.Drawing.Size(113, 20);
+            this.rbtnAdmin.TabIndex = 10;
+            this.rbtnAdmin.Text = "Quản Trị Viên";
+            // 
+            // btnSignUp
+            // 
+            this.btnSignUp.AnimationHoverSpeed = 0.07F;
+            this.btnSignUp.AnimationSpeed = 0.03F;
+            this.btnSignUp.BaseColor1 = System.Drawing.Color.LightCyan;
+            this.btnSignUp.BaseColor2 = System.Drawing.Color.MediumSeaGreen;
+            this.btnSignUp.BorderColor = System.Drawing.Color.Black;
+            this.btnSignUp.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnSignUp.FocusedColor = System.Drawing.Color.Empty;
+            this.btnSignUp.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnSignUp.ForeColor = System.Drawing.Color.White;
+            this.btnSignUp.Image = ((System.Drawing.Image)(resources.GetObject("btnSignUp.Image")));
+            this.btnSignUp.ImageSize = new System.Drawing.Size(20, 20);
+            this.btnSignUp.Location = new System.Drawing.Point(543, 372);
+            this.btnSignUp.Name = "btnSignUp";
+            this.btnSignUp.OnHoverBaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(145)))), ((int)(((byte)(221)))));
+            this.btnSignUp.OnHoverBaseColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(85)))), ((int)(((byte)(255)))));
+            this.btnSignUp.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btnSignUp.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnSignUp.OnHoverImage = null;
+            this.btnSignUp.OnPressedColor = System.Drawing.Color.Black;
+            this.btnSignUp.Size = new System.Drawing.Size(160, 42);
+            this.btnSignUp.TabIndex = 11;
+            this.btnSignUp.Text = "Sign Up";
+            this.btnSignUp.Click += new System.EventHandler(this.btnSignUp_Click);
             // 
             // Login
             // 
@@ -176,7 +242,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Honeydew;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.gunaGradientButton1);
+            this.Controls.Add(this.btnSignUp);
+            this.Controls.Add(this.rbtnAdmin);
+            this.Controls.Add(this.rbtnTeacher);
+            this.Controls.Add(this.rbtnStudent);
+            this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.gunaGradient2Panel2);
             this.Controls.Add(this.gunaGradient2Panel1);
             this.Controls.Add(this.gunaLabel1);
@@ -190,6 +260,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gunaCirclePictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -202,6 +273,10 @@
         private Guna.UI.WinForms.GunaLineTextBox txt_Password;
         private Guna.UI.WinForms.GunaCirclePictureBox gunaCirclePictureBox1;
         private Guna.UI.WinForms.GunaCirclePictureBox gunaCirclePictureBox2;
-        private Guna.UI.WinForms.GunaGradientButton gunaGradientButton1;
+        private Guna.UI.WinForms.GunaGradientButton btnLogin;
+        private Guna.UI.WinForms.GunaRadioButton rbtnStudent;
+        private Guna.UI.WinForms.GunaRadioButton rbtnTeacher;
+        private Guna.UI.WinForms.GunaRadioButton rbtnAdmin;
+        private Guna.UI.WinForms.GunaGradientButton btnSignUp;
     }
 }

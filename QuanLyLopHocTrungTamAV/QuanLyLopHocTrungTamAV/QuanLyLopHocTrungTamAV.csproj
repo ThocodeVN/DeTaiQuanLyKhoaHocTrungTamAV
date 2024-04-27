@@ -66,28 +66,29 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAO\LoginDAO.cs" />
+    <Compile Include="DTO\LoginDTO.cs" />
     <Compile Include="FirstForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FirstForm.Designer.cs">
       <DependentUpon>FirstForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\Admin\dsachid.cs">
+    <Compile Include="GUI\dsachid.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\Admin\dsachid.Designer.cs">
+    <Compile Include="GUI\dsachid.Designer.cs">
       <DependentUpon>dsachid.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\Admin\Manager.cs">
+    <Compile Include="GUI\Manager.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\Admin\Manager.Designer.cs">
+    <Compile Include="GUI\Manager.Designer.cs">
       <DependentUpon>Manager.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\Admin\NhomHoc.cs">
+    <Compile Include="GUI\NhomHoc.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\Admin\NhomHoc.Designer.cs">
+    <Compile Include="GUI\NhomHoc.Designer.cs">
       <DependentUpon>NhomHoc.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Login.cs">
@@ -96,16 +97,16 @@
     <Compile Include="GUI\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\Student\Student.cs">
+    <Compile Include="GUI\Student.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\Student\Student.Designer.cs">
+    <Compile Include="GUI\Student.Designer.cs">
       <DependentUpon>Student.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\Teacher\Teacher.cs">
+    <Compile Include="GUI\Teacher.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\Teacher\Teacher.Designer.cs">
+    <Compile Include="GUI\Teacher.Designer.cs">
       <DependentUpon>Teacher.cs</DependentUpon>
     </Compile>
     <Compile Include="MyDataBase.cs" />
@@ -114,22 +115,22 @@
     <EmbeddedResource Include="FirstForm.resx">
       <DependentUpon>FirstForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\Admin\dsachid.resx">
+    <EmbeddedResource Include="GUI\dsachid.resx">
       <DependentUpon>dsachid.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\Admin\Manager.resx">
+    <EmbeddedResource Include="GUI\Manager.resx">
       <DependentUpon>Manager.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\Admin\NhomHoc.resx">
+    <EmbeddedResource Include="GUI\NhomHoc.resx">
       <DependentUpon>NhomHoc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\Student\Student.resx">
+    <EmbeddedResource Include="GUI\Student.resx">
       <DependentUpon>Student.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\Teacher\Teacher.resx">
+    <EmbeddedResource Include="GUI\Teacher.resx">
       <DependentUpon>Teacher.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
@@ -156,9 +157,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DTO\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\idea.png" />
   </ItemGroup>

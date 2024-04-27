@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace QuanLyLopHocTrungTamAV.GUI.Student
+namespace QuanLyLopHocTrungTamAV.GUI
 {
     public partial class Student : Form
     {
