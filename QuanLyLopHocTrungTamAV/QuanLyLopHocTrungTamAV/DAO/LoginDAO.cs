@@ -28,10 +28,7 @@ namespace QuanLyLopHocTrungTamAV.DAO
                 if (dt.Rows.Count > 0)
                 {
                     DataRow dr = dt.Rows[0];
-                    if (dr["QuyenNguoiDung"].ToString() == "Quyen1")
-                    {
-                        role = "Quyen1";
-                    }    
+                    role = dr["QuyenNguoiDung"].ToString();
                 }    
             }
             catch (SqlException exc)

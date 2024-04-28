@@ -31,17 +31,17 @@ namespace QuanLyLopHocTrungTamAV.GUI
 
             if (rbtnStudent.Checked)
             {
-                role = "Quyen1";
+                role = "Quyen2";
             }    
 
             if (rbtnTeacher.Checked)
             {
-                role = "Quyen2";
+                role = "Quyen1";
             }    
             login = new LoginDTO(txt_Username.Text.Trim(), txt_Password.Text.Trim(), role);
             string result = loginDAO.Login(login);
             Student st = new Student();
-            if(result == "Quyen1")
+            if(result == "Quyen2")
             {
                 this.Hide();
                 this.Show();
