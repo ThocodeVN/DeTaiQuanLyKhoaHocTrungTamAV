@@ -32,7 +32,7 @@ namespace QuanLyLopHocTrungTamAV.GUI
             {
                 role = "Quyen1";
             }
-            re = new RegisterDTO(txtName.Text,Convert.ToDateTime( txtBirthDate.Text), txtSex.Text, txtAddress.Text, txtPhone.Text, txtEmail.Text);
+            re = new RegisterDTO(txtName.Text,txtBirth.Text, txtSex.Text, txtAddress.Text, txtPhone.Text, txtEmail.Text);
             loginDAO.SignUp(re, role);
         }
     }

@@ -35,9 +35,6 @@
             this.gunaGradient2Panel4 = new Guna.UI.WinForms.GunaGradient2Panel();
             this.gunaCirclePictureBox4 = new Guna.UI.WinForms.GunaCirclePictureBox();
             this.txtSex = new Guna.UI.WinForms.GunaLineTextBox();
-            this.gunaGradient2Panel5 = new Guna.UI.WinForms.GunaGradient2Panel();
-            this.gunaCirclePictureBox5 = new Guna.UI.WinForms.GunaCirclePictureBox();
-            this.txtBirthDate = new Guna.UI.WinForms.GunaLineTextBox();
             this.gunaGradient2Panel6 = new Guna.UI.WinForms.GunaGradient2Panel();
             this.gunaCirclePictureBox6 = new Guna.UI.WinForms.GunaCirclePictureBox();
             this.txtName = new Guna.UI.WinForms.GunaLineTextBox();
@@ -50,10 +47,11 @@
             this.gunaGradient2Panel3 = new Guna.UI.WinForms.GunaGradient2Panel();
             this.gunaCirclePictureBox3 = new Guna.UI.WinForms.GunaCirclePictureBox();
             this.txtAddress = new Guna.UI.WinForms.GunaLineTextBox();
+            this.gunaGradient2Panel5 = new Guna.UI.WinForms.GunaGradient2Panel();
+            this.gunaCirclePictureBox5 = new Guna.UI.WinForms.GunaCirclePictureBox();
+            this.txtBirth = new Guna.UI.WinForms.GunaLineTextBox();
             this.gunaGradient2Panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gunaCirclePictureBox4)).BeginInit();
-            this.gunaGradient2Panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gunaCirclePictureBox5)).BeginInit();
             this.gunaGradient2Panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gunaCirclePictureBox6)).BeginInit();
             this.gunaGradient2Panel1.SuspendLayout();
@@ -62,6 +60,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.gunaCirclePictureBox2)).BeginInit();
             this.gunaGradient2Panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gunaCirclePictureBox3)).BeginInit();
+            this.gunaGradient2Panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gunaCirclePictureBox5)).BeginInit();
             this.SuspendLayout();
             // 
             // rbtnTeacher
@@ -152,45 +152,6 @@
             this.txtSex.Size = new System.Drawing.Size(187, 30);
             this.txtSex.TabIndex = 1;
             this.txtSex.Text = "Giới Tính";
-            // 
-            // gunaGradient2Panel5
-            // 
-            this.gunaGradient2Panel5.BackColor = System.Drawing.Color.Transparent;
-            this.gunaGradient2Panel5.Controls.Add(this.gunaCirclePictureBox5);
-            this.gunaGradient2Panel5.Controls.Add(this.txtBirthDate);
-            this.gunaGradient2Panel5.GradientColor1 = System.Drawing.Color.White;
-            this.gunaGradient2Panel5.GradientColor2 = System.Drawing.Color.White;
-            this.gunaGradient2Panel5.Location = new System.Drawing.Point(122, 245);
-            this.gunaGradient2Panel5.Name = "gunaGradient2Panel5";
-            this.gunaGradient2Panel5.Size = new System.Drawing.Size(326, 41);
-            this.gunaGradient2Panel5.TabIndex = 21;
-            // 
-            // gunaCirclePictureBox5
-            // 
-            this.gunaCirclePictureBox5.BaseColor = System.Drawing.Color.White;
-            this.gunaCirclePictureBox5.Image = global::QuanLyLopHocTrungTamAV.Properties.Resources.padlock;
-            this.gunaCirclePictureBox5.Location = new System.Drawing.Point(22, 3);
-            this.gunaCirclePictureBox5.Name = "gunaCirclePictureBox5";
-            this.gunaCirclePictureBox5.Size = new System.Drawing.Size(36, 35);
-            this.gunaCirclePictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.gunaCirclePictureBox5.TabIndex = 2;
-            this.gunaCirclePictureBox5.TabStop = false;
-            this.gunaCirclePictureBox5.UseTransfarantBackground = false;
-            // 
-            // txtBirthDate
-            // 
-            this.txtBirthDate.BackColor = System.Drawing.Color.White;
-            this.txtBirthDate.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtBirthDate.FocusedLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.txtBirthDate.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBirthDate.LineColor = System.Drawing.Color.Gainsboro;
-            this.txtBirthDate.Location = new System.Drawing.Point(81, 3);
-            this.txtBirthDate.Name = "txtBirthDate";
-            this.txtBirthDate.PasswordChar = '\0';
-            this.txtBirthDate.SelectedText = "";
-            this.txtBirthDate.Size = new System.Drawing.Size(187, 30);
-            this.txtBirthDate.TabIndex = 1;
-            this.txtBirthDate.Text = "Ngày Sinh";
             // 
             // gunaGradient2Panel6
             // 
@@ -348,16 +309,55 @@
             this.txtAddress.TabIndex = 1;
             this.txtAddress.Text = "Địa Chỉ";
             // 
+            // gunaGradient2Panel5
+            // 
+            this.gunaGradient2Panel5.BackColor = System.Drawing.Color.Transparent;
+            this.gunaGradient2Panel5.Controls.Add(this.gunaCirclePictureBox5);
+            this.gunaGradient2Panel5.Controls.Add(this.txtBirth);
+            this.gunaGradient2Panel5.GradientColor1 = System.Drawing.Color.White;
+            this.gunaGradient2Panel5.GradientColor2 = System.Drawing.Color.White;
+            this.gunaGradient2Panel5.Location = new System.Drawing.Point(122, 250);
+            this.gunaGradient2Panel5.Name = "gunaGradient2Panel5";
+            this.gunaGradient2Panel5.Size = new System.Drawing.Size(326, 41);
+            this.gunaGradient2Panel5.TabIndex = 24;
+            // 
+            // gunaCirclePictureBox5
+            // 
+            this.gunaCirclePictureBox5.BaseColor = System.Drawing.Color.White;
+            this.gunaCirclePictureBox5.Image = global::QuanLyLopHocTrungTamAV.Properties.Resources.idea;
+            this.gunaCirclePictureBox5.Location = new System.Drawing.Point(22, 3);
+            this.gunaCirclePictureBox5.Name = "gunaCirclePictureBox5";
+            this.gunaCirclePictureBox5.Size = new System.Drawing.Size(36, 35);
+            this.gunaCirclePictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.gunaCirclePictureBox5.TabIndex = 2;
+            this.gunaCirclePictureBox5.TabStop = false;
+            this.gunaCirclePictureBox5.UseTransfarantBackground = false;
+            // 
+            // txtBirth
+            // 
+            this.txtBirth.BackColor = System.Drawing.Color.White;
+            this.txtBirth.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtBirth.FocusedLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.txtBirth.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBirth.LineColor = System.Drawing.Color.Gainsboro;
+            this.txtBirth.Location = new System.Drawing.Point(81, 3);
+            this.txtBirth.Name = "txtBirth";
+            this.txtBirth.PasswordChar = '\0';
+            this.txtBirth.SelectedText = "";
+            this.txtBirth.Size = new System.Drawing.Size(187, 30);
+            this.txtBirth.TabIndex = 1;
+            this.txtBirth.Text = "Ngày Sinh";
+            // 
             // FRegister
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(568, 748);
+            this.Controls.Add(this.gunaGradient2Panel5);
             this.Controls.Add(this.gunaGradient2Panel1);
             this.Controls.Add(this.gunaGradient2Panel2);
             this.Controls.Add(this.gunaGradient2Panel4);
             this.Controls.Add(this.gunaGradient2Panel3);
-            this.Controls.Add(this.gunaGradient2Panel5);
             this.Controls.Add(this.gunaGradient2Panel6);
             this.Controls.Add(this.btnSignUp);
             this.Controls.Add(this.rbtnTeacher);
@@ -367,8 +367,6 @@
             this.Text = "FRegister";
             this.gunaGradient2Panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gunaCirclePictureBox4)).EndInit();
-            this.gunaGradient2Panel5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gunaCirclePictureBox5)).EndInit();
             this.gunaGradient2Panel6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gunaCirclePictureBox6)).EndInit();
             this.gunaGradient2Panel1.ResumeLayout(false);
@@ -377,6 +375,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.gunaCirclePictureBox2)).EndInit();
             this.gunaGradient2Panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gunaCirclePictureBox3)).EndInit();
+            this.gunaGradient2Panel5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gunaCirclePictureBox5)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -390,9 +390,6 @@
         private Guna.UI.WinForms.GunaGradient2Panel gunaGradient2Panel4;
         private Guna.UI.WinForms.GunaCirclePictureBox gunaCirclePictureBox4;
         private Guna.UI.WinForms.GunaLineTextBox txtSex;
-        private Guna.UI.WinForms.GunaGradient2Panel gunaGradient2Panel5;
-        private Guna.UI.WinForms.GunaCirclePictureBox gunaCirclePictureBox5;
-        private Guna.UI.WinForms.GunaLineTextBox txtBirthDate;
         private Guna.UI.WinForms.GunaGradient2Panel gunaGradient2Panel6;
         private Guna.UI.WinForms.GunaCirclePictureBox gunaCirclePictureBox6;
         private Guna.UI.WinForms.GunaLineTextBox txtName;
@@ -405,5 +402,8 @@
         private Guna.UI.WinForms.GunaGradient2Panel gunaGradient2Panel3;
         private Guna.UI.WinForms.GunaCirclePictureBox gunaCirclePictureBox3;
         private Guna.UI.WinForms.GunaLineTextBox txtAddress;
+        private Guna.UI.WinForms.GunaGradient2Panel gunaGradient2Panel5;
+        private Guna.UI.WinForms.GunaCirclePictureBox gunaCirclePictureBox5;
+        private Guna.UI.WinForms.GunaLineTextBox txtBirth;
     }
 }

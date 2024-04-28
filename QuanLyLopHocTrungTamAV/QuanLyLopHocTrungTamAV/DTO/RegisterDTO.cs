@@ -9,18 +9,18 @@ using System.Windows.Forms;
 
 namespace QuanLyLopHocTrungTamAV.DTO
 {
-    internal class RegisterDTO
+    public class RegisterDTO
     {
         int id;
         string name;
-        DateTime date;
+        string date;
         string sex;
         string address;
         string phone;
         string email;
         int tk;
 
-        public RegisterDTO(string name, DateTime date, string sex, string address, string phone, string email)
+        public RegisterDTO(string name, string date, string sex, string address, string phone, string email)
         {
             Name = name;
             Date = date;
@@ -28,12 +28,11 @@ namespace QuanLyLopHocTrungTamAV.DTO
             Address = address;
             Phone = phone;
             Email = email;
-            Tk = tk;
         }
 
         public int Id { get => id; set => id = value; }
         public string Name { get => name; set => name = value; }
-        public DateTime Date { get => date; set => date = value; }
+        public string Date { get => date; set => date = value; }
         public string Sex { get => sex; set => sex = value; }
         public string Address { get => address; set => address = value; }
         public string Phone { get => phone; set => phone = value; }
