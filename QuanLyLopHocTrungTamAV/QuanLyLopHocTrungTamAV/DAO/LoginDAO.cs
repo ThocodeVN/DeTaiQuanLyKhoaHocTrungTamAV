@@ -14,7 +14,7 @@ using System.Windows.Forms;
 
 namespace QuanLyLopHocTrungTamAV.DAO
 {
-    class LoginDAO
+    public class LoginDAO
     {
         SqlConnection conn = null;
         LoginDTO loginDTO;
@@ -27,7 +27,7 @@ namespace QuanLyLopHocTrungTamAV.DAO
         public LoginDAO(LoginDTO login)
         {
             loginDTO = login;
-            conn = new SqlConnection(@"Data Source=DESKTOP-1CII1JF\SQLEXPRESS;Initial Catalog=HQT;User Id=" + loginDTO.Username + ";Password=" + loginDTO.Password + ";");
+            conn = new SqlConnection(@"Data Source=DESKTOP-1CII1JF\SQLEXPRESS;Initial Catalog=HQTpr;User Id=" + loginDTO.Username + ";Password=" + loginDTO.Password + ";");
         }
 
         public string Login ()
@@ -67,7 +67,7 @@ namespace QuanLyLopHocTrungTamAV.DAO
 
         public void SignUp(RegisterDTO re, string role)
         {
-            conn = new SqlConnection(@"Data Source=DESKTOP-1CII1JF\SQLEXPRESS;Initial Catalog=HQT;Integrated Security=True");
+            conn = new SqlConnection(@"Data Source=DESKTOP-1CII1JF\SQLEXPRESS;Initial Catalog=HQTpr;Integrated Security=True");
             try
             {
                 conn.Open();
@@ -101,9 +101,41 @@ namespace QuanLyLopHocTrungTamAV.DAO
             {
                 DataRow dr = dt.Rows[0];
                 MessageBox.Show(dr["DiaChi"].ToString());
-                teacher = new RegisterDTO(dr["HoTen"].ToString(), dr["NgaySinh"].ToString(), dr["GioiTinh"].ToString(), dr["DiaChi"].ToString(), dr["SoDienThoai"].ToString(), dr["Email"].ToString());
+                teacher = new RegisterDTO(dr["HoTen"].ToString(),Convert.ToDateTime(dr["NgaySinh"]), dr["GioiTinh"].ToString(), dr["DiaChi"].ToString(), dr["SoDienThoai"].ToString(), dr["Email"].ToString());
             }
             return teacher;
         }
+
+        public DataTable ListClassTeaching(RegisterDTO teacher)
+        {
+            string sqlStr = string.Format("SELECT * FROM dbo.uf_LayDanhSachNhom_DangDay(@MaGiaoVien)");
+            SqlCommand cmd = new SqlCommand(sqlStr, conn);
+            cmd.Parameters.AddWithValue("@MaGiaoVien", teacher.Id);
+            object result = cmd.ExecuteScalar();
+            DataTable listClass = new DataTable();
+            listClass = result as DataTable;
+            return listClass;
+        }
+
+        public DataTable ListClass()
+        {
+            string sqlStr = string.Format("SELECT * FROM dbo.uf_LayDanhSachNhom()");
+            SqlCommand cmd = new SqlCommand(sqlStr, conn);
+            object result = cmd.ExecuteScalar();
+            DataTable listClass = new DataTable();
+            listClass = result as DataTable;
+            return listClass;
+        }
+
+        public DataTable LoadStudentOfGroup(int MaNhomHoc)
+        {
+            string sqlStr = string.Format("SELECT * FROM dbo.func_layDSHocVienNhomHoc(@MaNhomHoc)");
+            SqlCommand cmd = new SqlCommand(sqlStr, conn);
+            cmd.Parameters.AddWithValue("@MaNhomHoc", MaNhomHoc);
+            object result = cmd.ExecuteScalar();
+            DataTable list = new DataTable();
+            list = result as DataTable;
+            return list;
+        }    
     }
 }

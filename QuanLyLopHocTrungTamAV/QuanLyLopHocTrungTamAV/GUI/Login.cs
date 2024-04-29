@@ -1,5 +1,6 @@
 ﻿using QuanLyLopHocTrungTamAV.DAO;
 using QuanLyLopHocTrungTamAV.DTO;
+using QuanLyLopHocTrungTamAV.GUI.Admin;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -66,7 +67,7 @@ namespace QuanLyLopHocTrungTamAV.GUI
             if (role == "Quyen1")
             {
                 RegisterDTO tch = loginDAO.GetOneTeacher(result);
-                Teacher teacher = new Teacher(tch);
+                Teacher teacher = new Teacher(tch, loginDAO);
                 this.Hide();
                 this.Show();
                 DialogResult rs = teacher.ShowDialog();
@@ -76,10 +77,17 @@ namespace QuanLyLopHocTrungTamAV.GUI
                 }
             }
 
-            if (result == "Đăng nhập thất bại")
+            if (role == "Quyen3")
             {
-                MessageBox.Show(result);
-            }    
+                Manager man = new Manager(loginDAO);
+                this.Hide();
+                this.Show();
+                DialogResult rs = man.ShowDialog();
+                if (rs == DialogResult.Cancel)
+                {
+                    loginDAO.CloseConnection();
+                }
+            }
         }
     }
 }

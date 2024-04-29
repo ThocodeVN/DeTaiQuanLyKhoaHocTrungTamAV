@@ -9,23 +9,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace QuanLyLopHocTrungTamAV.GUI.Admin
+namespace QuanLyLopHocTrungTamAV.GUI
 {
-    public partial class Manager : Form
+    public partial class FListGroup : Form
     {
         LoginDAO loginDAO;
-        public Manager(LoginDAO login)
+        public FListGroup(LoginDAO login)
         {
             InitializeComponent();
-            loginDAO = login;
+            this.loginDAO = login;  
         }
 
-        private void btnListGroup_Click(object sender, EventArgs e)
+        private void FListGroup_Load(object sender, EventArgs e)
         {
-            FListGroup f = new FListGroup(loginDAO);
-            this.Hide();
-            this.Show();
-            f.ShowDialog();
+             dgvListGroup.DataSource = loginDAO.ListClass();
         }
     }
 }

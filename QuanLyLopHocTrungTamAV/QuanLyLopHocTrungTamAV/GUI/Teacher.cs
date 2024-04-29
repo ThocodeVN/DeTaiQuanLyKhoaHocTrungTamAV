@@ -1,4 +1,5 @@
-﻿using QuanLyLopHocTrungTamAV.DTO;
+﻿using QuanLyLopHocTrungTamAV.DAO;
+using QuanLyLopHocTrungTamAV.DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,10 +15,12 @@ namespace QuanLyLopHocTrungTamAV.GUI
     public partial class Teacher : Form
     {
         RegisterDTO teacher;
-        public Teacher(RegisterDTO teacher)
+        LoginDAO loginDAO;
+        public Teacher(RegisterDTO teacher, LoginDAO login)
         {
             InitializeComponent();
             this.teacher = teacher;
+            this.loginDAO = login;
         }
 
         private void Teacher_Load(object sender, EventArgs e)
@@ -27,8 +30,21 @@ namespace QuanLyLopHocTrungTamAV.GUI
             txtPhone.Text = teacher.Phone;
             txtEmail.Text = teacher.Email;
             txtAddress.Text = teacher.Address;
-            txtBirth.Text = teacher.Date;
+            dtpBirth.Value = teacher.Date;
             lbTeacherName.Text = teacher.Name;
+        }
+
+        private void gunaTileButton3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnListClass_Click(object sender, EventArgs e)
+        {
+            FListClass f = new FListClass(teacher, loginDAO);
+            this.Hide();
+            this.Show();
+            f.ShowDialog();
         }
     }
 }

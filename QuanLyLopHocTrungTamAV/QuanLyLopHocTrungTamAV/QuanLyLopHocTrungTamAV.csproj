@@ -80,6 +80,24 @@
     <Compile Include="GUI\dsachid.Designer.cs">
       <DependentUpon>dsachid.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\FListClass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FListClass.Designer.cs">
+      <DependentUpon>FListClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FListGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FListGroup.Designer.cs">
+      <DependentUpon>FListGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FListStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FListStudent.Designer.cs">
+      <DependentUpon>FListStudent.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\FRegister.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,6 +142,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\dsachid.resx">
       <DependentUpon>dsachid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FListClass.resx">
+      <DependentUpon>FListClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FListGroup.resx">
+      <DependentUpon>FListGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FListStudent.resx">
+      <DependentUpon>FListStudent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FRegister.resx">
       <DependentUpon>FRegister.cs</DependentUpon>

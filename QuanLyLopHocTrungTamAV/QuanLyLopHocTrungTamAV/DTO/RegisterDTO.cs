@@ -13,14 +13,14 @@ namespace QuanLyLopHocTrungTamAV.DTO
     {
         int id;
         string name;
-        string date;
+        DateTime date;
         string sex;
         string address;
         string phone;
         string email;
         int tk;
 
-        public RegisterDTO(string name, string date, string sex, string address, string phone, string email)
+        public RegisterDTO(string name, DateTime date, string sex, string address, string phone, string email)
         {
             Name = name;
             Date = date;
@@ -32,7 +32,7 @@ namespace QuanLyLopHocTrungTamAV.DTO
 
         public int Id { get => id; set => id = value; }
         public string Name { get => name; set => name = value; }
-        public string Date { get => date; set => date = value; }
+        public DateTime Date { get => date; set => date = value; }
         public string Sex { get => sex; set => sex = value; }
         public string Address { get => address; set => address = value; }
         public string Phone { get => phone; set => phone = value; }

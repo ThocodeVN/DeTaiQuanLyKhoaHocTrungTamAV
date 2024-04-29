@@ -237,7 +237,7 @@ CREATE TRIGGER TG_TuDongThemTaiKhoanGiaoVien ON GIAOVIEN
 AFTER INSERT
 AS
 BEGIN
-	DECLARE @MaTK varchar
+	DECLARE @MaTK varchar(20)
 	DECLARE @TenDN varchar(20)
 	DECLARE @MK varchar(20)
 	DECLARE @Quyen varchar(20)
@@ -443,13 +443,14 @@ RETURNs TABLE
 go
 
 --Hàm lấy danh sách nhóm đang dạy
-CREATE OR ALTER FUNCTION uf_LayDanhSachNhom_DangDay(@MaGiaoVien varchar(20))
+CREATE OR ALTER FUNCTION uf_LayDanhSachNhom_DangDay(@MaGiaoVien int)
 RETURNs TABLE
 	AS RETURN 
 		SELECT * 
 		FROM dbo.uf_LayDanhSachNhom() 
 		where MaGiaoVien = @MaGiaoVien
 go
+
 
 --Xóa một lớp học
 CREATE OR ALTER PROC proc_XoaLopHoc
@@ -560,4 +561,6 @@ GRANT SELECT, REFERENCES ON HOCTHEO TO GiaoVien
 GRANT SELECT, REFERENCES ON HOCVIEN TO GiaoVien
 GRANT EXECUTE TO GiaoVien
 GRANT SELECT TO GiaoVien
+
+GRANT SELECT ON uf_LayDanhSachNhom_DangDay TO GiaoVien
 

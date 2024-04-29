@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace QuanLyLopHocTrungTamAV.DTO
 {
-    internal class LoginDTO
+    public class LoginDTO
     {
         private string _username;
         private string _password;

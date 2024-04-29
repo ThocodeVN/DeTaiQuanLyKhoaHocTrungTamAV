@@ -36,6 +36,7 @@
             this.d = new System.Windows.Forms.Label();
             this.lbTeacherName = new System.Windows.Forms.Label();
             this.gunaCirclePictureBox1 = new Guna.UI.WinForms.GunaCirclePictureBox();
+            this.dtpBirth = new Guna.UI.WinForms.GunaDateTimePicker();
             this.btnUpdate = new Guna.UI.WinForms.GunaButton();
             this.gunaLabel7 = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel6 = new Guna.UI.WinForms.GunaLabel();
@@ -50,10 +51,9 @@
             this.txtAddress = new Guna.UI.WinForms.GunaTextBox();
             this.txtName = new Guna.UI.WinForms.GunaTextBox();
             this.gunaPictureBox1 = new Guna.UI.WinForms.GunaPictureBox();
-            this.gunaTileButton3 = new Guna.UI.WinForms.GunaTileButton();
+            this.btnListClass = new Guna.UI.WinForms.GunaTileButton();
             this.gunaTileButton2 = new Guna.UI.WinForms.GunaTileButton();
             this.gunaTileButton1 = new Guna.UI.WinForms.GunaTileButton();
-            this.txtBirth = new Guna.UI.WinForms.GunaTextBox();
             this.gunaPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -85,7 +85,7 @@
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.txtBirth);
+            this.splitContainer1.Panel2.Controls.Add(this.dtpBirth);
             this.splitContainer1.Panel2.Controls.Add(this.btnUpdate);
             this.splitContainer1.Panel2.Controls.Add(this.gunaLabel7);
             this.splitContainer1.Panel2.Controls.Add(this.gunaLabel6);
@@ -154,6 +154,28 @@
             this.gunaCirclePictureBox1.TabStop = false;
             this.gunaCirclePictureBox1.UseTransfarantBackground = false;
             // 
+            // dtpBirth
+            // 
+            this.dtpBirth.BaseColor = System.Drawing.Color.White;
+            this.dtpBirth.BorderColor = System.Drawing.Color.Silver;
+            this.dtpBirth.CustomFormat = null;
+            this.dtpBirth.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
+            this.dtpBirth.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.dtpBirth.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.dtpBirth.ForeColor = System.Drawing.Color.Black;
+            this.dtpBirth.Location = new System.Drawing.Point(16, 498);
+            this.dtpBirth.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.dtpBirth.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.dtpBirth.Name = "dtpBirth";
+            this.dtpBirth.OnHoverBaseColor = System.Drawing.Color.White;
+            this.dtpBirth.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.dtpBirth.OnHoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.dtpBirth.OnPressedColor = System.Drawing.Color.Black;
+            this.dtpBirth.Size = new System.Drawing.Size(240, 30);
+            this.dtpBirth.TabIndex = 4;
+            this.dtpBirth.Text = "Monday, April 29, 2024";
+            this.dtpBirth.Value = new System.DateTime(2024, 4, 29, 20, 56, 38, 776);
+            // 
             // btnUpdate
             // 
             this.btnUpdate.AnimationHoverSpeed = 0.07F;
@@ -180,7 +202,7 @@
             // gunaLabel7
             // 
             this.gunaLabel7.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.gunaLabel7.Location = new System.Drawing.Point(204, 313);
+            this.gunaLabel7.Location = new System.Drawing.Point(12, 475);
             this.gunaLabel7.Name = "gunaLabel7";
             this.gunaLabel7.Size = new System.Drawing.Size(134, 20);
             this.gunaLabel7.TabIndex = 2;
@@ -337,28 +359,29 @@
             this.gunaPictureBox1.TabIndex = 10;
             this.gunaPictureBox1.TabStop = false;
             // 
-            // gunaTileButton3
+            // btnListClass
             // 
-            this.gunaTileButton3.AnimationHoverSpeed = 0.07F;
-            this.gunaTileButton3.AnimationSpeed = 0.03F;
-            this.gunaTileButton3.BaseColor = System.Drawing.Color.Black;
-            this.gunaTileButton3.BorderColor = System.Drawing.Color.Black;
-            this.gunaTileButton3.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.gunaTileButton3.FocusedColor = System.Drawing.Color.Empty;
-            this.gunaTileButton3.Font = new System.Drawing.Font("Showcard Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaTileButton3.ForeColor = System.Drawing.Color.White;
-            this.gunaTileButton3.Image = ((System.Drawing.Image)(resources.GetObject("gunaTileButton3.Image")));
-            this.gunaTileButton3.ImageSize = new System.Drawing.Size(52, 52);
-            this.gunaTileButton3.Location = new System.Drawing.Point(0, 326);
-            this.gunaTileButton3.Name = "gunaTileButton3";
-            this.gunaTileButton3.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
-            this.gunaTileButton3.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.gunaTileButton3.OnHoverForeColor = System.Drawing.Color.White;
-            this.gunaTileButton3.OnHoverImage = null;
-            this.gunaTileButton3.OnPressedColor = System.Drawing.Color.Black;
-            this.gunaTileButton3.Size = new System.Drawing.Size(266, 127);
-            this.gunaTileButton3.TabIndex = 7;
-            this.gunaTileButton3.Text = "Class Detail";
+            this.btnListClass.AnimationHoverSpeed = 0.07F;
+            this.btnListClass.AnimationSpeed = 0.03F;
+            this.btnListClass.BaseColor = System.Drawing.Color.Black;
+            this.btnListClass.BorderColor = System.Drawing.Color.Black;
+            this.btnListClass.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnListClass.FocusedColor = System.Drawing.Color.Empty;
+            this.btnListClass.Font = new System.Drawing.Font("Showcard Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnListClass.ForeColor = System.Drawing.Color.White;
+            this.btnListClass.Image = ((System.Drawing.Image)(resources.GetObject("btnListClass.Image")));
+            this.btnListClass.ImageSize = new System.Drawing.Size(52, 52);
+            this.btnListClass.Location = new System.Drawing.Point(0, 326);
+            this.btnListClass.Name = "btnListClass";
+            this.btnListClass.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
+            this.btnListClass.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btnListClass.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnListClass.OnHoverImage = null;
+            this.btnListClass.OnPressedColor = System.Drawing.Color.Black;
+            this.btnListClass.Size = new System.Drawing.Size(266, 127);
+            this.btnListClass.TabIndex = 7;
+            this.btnListClass.Text = "Class Detail";
+            this.btnListClass.Click += new System.EventHandler(this.btnListClass_Click);
             // 
             // gunaTileButton2
             // 
@@ -406,23 +429,6 @@
             this.gunaTileButton1.TabIndex = 9;
             this.gunaTileButton1.Text = "My Profile";
             // 
-            // txtBirth
-            // 
-            this.txtBirth.BaseColor = System.Drawing.Color.White;
-            this.txtBirth.BorderColor = System.Drawing.Color.Silver;
-            this.txtBirth.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtBirth.FocusedBaseColor = System.Drawing.Color.White;
-            this.txtBirth.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.txtBirth.FocusedForeColor = System.Drawing.SystemColors.ControlText;
-            this.txtBirth.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtBirth.Location = new System.Drawing.Point(208, 352);
-            this.txtBirth.Name = "txtBirth";
-            this.txtBirth.PasswordChar = '\0';
-            this.txtBirth.SelectedText = "";
-            this.txtBirth.Size = new System.Drawing.Size(160, 32);
-            this.txtBirth.TabIndex = 4;
-            this.txtBirth.Text = "gunaTextBox1";
-            // 
             // Teacher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -430,7 +436,7 @@
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1024, 635);
             this.Controls.Add(this.gunaPictureBox1);
-            this.Controls.Add(this.gunaTileButton3);
+            this.Controls.Add(this.btnListClass);
             this.Controls.Add(this.gunaTileButton2);
             this.Controls.Add(this.gunaTileButton1);
             this.Controls.Add(this.gunaPanel1);
@@ -453,7 +459,7 @@
 
         private Guna.UI.WinForms.GunaPanel gunaPanel1;
         private Guna.UI.WinForms.GunaPictureBox gunaPictureBox1;
-        private Guna.UI.WinForms.GunaTileButton gunaTileButton3;
+        private Guna.UI.WinForms.GunaTileButton btnListClass;
         private Guna.UI.WinForms.GunaTileButton gunaTileButton2;
         private Guna.UI.WinForms.GunaTileButton gunaTileButton1;
         private System.Windows.Forms.Panel panel1;
@@ -475,6 +481,6 @@
         private Guna.UI.WinForms.GunaTextBox txtAddress;
         private Guna.UI.WinForms.GunaTextBox txtName;
         private Guna.UI.WinForms.GunaButton btnUpdate;
-        private Guna.UI.WinForms.GunaTextBox txtBirth;
+        private Guna.UI.WinForms.GunaDateTimePicker dtpBirth;
     }
 }
