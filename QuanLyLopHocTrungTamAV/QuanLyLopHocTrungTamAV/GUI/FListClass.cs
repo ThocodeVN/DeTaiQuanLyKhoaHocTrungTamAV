@@ -21,7 +21,7 @@ namespace QuanLyLopHocTrungTamAV.GUI
             InitializeComponent();
             this.teacher = teacher;
             this.loginDAO = login;
-            //ftxtGroupID.DataBindings.Add("Text", dgvListClass.DataSource, "MaNhomHoc");
+            //txtGroupID.DataBindings.Add("Text", dgvListClass.DataSource, "MaNhomHoc");
         }
 
         private void FListClass_Load(object sender, EventArgs e)

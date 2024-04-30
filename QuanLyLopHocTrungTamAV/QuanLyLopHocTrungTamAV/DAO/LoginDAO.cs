@@ -32,7 +32,6 @@ namespace QuanLyLopHocTrungTamAV.DAO
 
         public string Login ()
         {
-            MessageBox.Show(loginDTO.Username + " " + loginDTO.Password);
             DataTable dt = new DataTable();
             string matk = "";
             try
@@ -102,29 +101,53 @@ namespace QuanLyLopHocTrungTamAV.DAO
                 DataRow dr = dt.Rows[0];
                 MessageBox.Show(dr["DiaChi"].ToString());
                 teacher = new RegisterDTO(dr["HoTen"].ToString(),Convert.ToDateTime(dr["NgaySinh"]), dr["GioiTinh"].ToString(), dr["DiaChi"].ToString(), dr["SoDienThoai"].ToString(), dr["Email"].ToString());
+                teacher.Id = Convert.ToInt32(dr["MaGiaoVien"]);
             }
             return teacher;
         }
 
         public DataTable ListClassTeaching(RegisterDTO teacher)
         {
-            string sqlStr = string.Format("SELECT * FROM dbo.uf_LayDanhSachNhom_DangDay(@MaGiaoVien)");
-            SqlCommand cmd = new SqlCommand(sqlStr, conn);
-            cmd.Parameters.AddWithValue("@MaGiaoVien", teacher.Id);
-            object result = cmd.ExecuteScalar();
-            DataTable listClass = new DataTable();
-            listClass = result as DataTable;
-            return listClass;
+            try
+            {
+                MessageBox.Show(teacher.Id.ToString());
+                string sqlStr = string.Format("SELECT * FROM dbo.uf_LayDanhSachNhom_DangDay(@MaGiaoVien)");
+                SqlCommand cmd = new SqlCommand(sqlStr, conn);
+                cmd.Parameters.AddWithValue("@MaGiaoVien", teacher.Id);
+                using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                {
+                    DataTable listClass = new DataTable();
+                    adapter.Fill(listClass);
+
+                    if (listClass.Rows.Count == 0)
+                    {
+                        MessageBox.Show("Không có dữ liệu.");
+                    }
+                    return listClass;
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
         }
 
         public DataTable ListClass()
         {
             string sqlStr = string.Format("SELECT * FROM dbo.uf_LayDanhSachNhom()");
             SqlCommand cmd = new SqlCommand(sqlStr, conn);
-            object result = cmd.ExecuteScalar();
-            DataTable listClass = new DataTable();
-            listClass = result as DataTable;
-            return listClass;
+            using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+            {
+                DataTable list = new DataTable();
+                adapter.Fill(list);
+
+                if (list.Rows.Count == 0)
+                {
+                    MessageBox.Show("Không có dữ liệu.");
+                }
+                return list ;
+            }
         }
 
         public DataTable LoadStudentOfGroup(int MaNhomHoc)

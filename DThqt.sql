@@ -1,4 +1,5 @@
-﻿use HQT
+﻿
+use HQTpr
 go
 
 --Tạo bảng-------------------------------------------------------------
@@ -23,6 +24,8 @@ CREATE TABLE TAIKHOAN(
         REFERENCES QUYENNGUOIDUNG(QuyenNguoiDung)
 );
 go
+
+insert into TAIKHOAN(MaTaiKhoan, TenDangNhap, MatKhau,QuyenNguoiDung) values ('TKAD', 'Tho', '123', 'Quyen3')
 
 --Bảng Giáo Viên
 CREATE TABLE GIAOVIEN(
@@ -82,7 +85,7 @@ CREATE TABLE NHOMHOC(
 	TongBuoiHoc int not null,
 	TrangThaiMoDangKy BIT NOT NULL DEFAULT 0,
 )	
-go
+go	
 
 --Bảng Học Viên
 CREATE TABLE HOCVIEN(
@@ -241,7 +244,7 @@ BEGIN
 	DECLARE @TenDN varchar(20)
 	DECLARE @MK varchar(20)
 	DECLARE @Quyen varchar(20)
-	DECLARE @MaGV varchar(20)
+	DECLARE @MaGV int
 	SELECT @MaGV = i.MaGiaoVien,
 	@MaTK = 'TK' + CAST(i.MaGiaoVien as varchar),
 		@TenDN = i.HoTen,
@@ -262,7 +265,6 @@ BEGIN
 END
 GO
 
-
 --trigger tự động tạo tài khoản khi có thêm một học viên
 CREATE TRIGGER TG_TuDongThemTaiKhoanHocVien ON HOCVIEN
 AFTER INSERT
@@ -272,7 +274,7 @@ BEGIN
 	DECLARE @TenDN varchar(20)
 	DECLARE @MK varchar(20)
 	DECLARE @Quyen varchar(20)
-	DECLARE @MaHV varchar(20)
+	DECLARE @MaHV int
 
 	SELECT @MaHV = i.MaHocVien,
 	@MaTK = 'TK' + CAST( i.MaHocVien as varchar), 
@@ -293,6 +295,7 @@ BEGIN
 	UPDATE HOCVIEN SET MaTK = @MaTK WHERE MaHocVien = @MaHV
 END
 GO
+
 
 --Trigger kiểm tra số lượng học viên của lớp khi xóa học viên khỏi danh sách
 CREATE OR ALTER TRIGGER TG_KiemTraSoLuongHV ON DANHSACHNHOM
@@ -363,7 +366,7 @@ BEGIN
 	DECLARE @sql varchar(2000);
  
 	SELECT @username = i.TenDangNhap, @pass = i.MatKhau, @quyen = i.QuyenNguoiDung FROM inserted i
-	SET @sql = 'CREATE LOGIN [' + @username + '] WITH PASSWORD=''' + @pass + ''', DEFAULT_DATABASE= HQT, CHECK_EXPIRATION=OFF, CHECK_POLICY=OFF' 
+	SET @sql = 'CREATE LOGIN [' + @username + '] WITH PASSWORD=''' + @pass + ''', DEFAULT_DATABASE= HQTpr, CHECK_EXPIRATION=OFF, CHECK_POLICY=OFF' 
 	EXEC (@sql);
  
 	SET @sql = 'CREATE USER ' + @username + ' FOR LOGIN ' + @username
@@ -381,7 +384,7 @@ BEGIN
 		EXEC (@sql)
 	END
  
-	ELSE IF(@quyen = '3')
+	ELSE IF(@quyen = 'Quyen3')
 	BEGIN
 		SET @sql = 'ALTER SERVER ROLE sysadmin ADD MEMBER ' + @username
 		EXEC (@sql);
@@ -433,7 +436,7 @@ End
 go
 
 --Hàm trả về một danh sách các nhóm học
-CREATE OR ALTER FUNCTION uf_LayDanhSachNhom()
+CREATE OR ALTER FUNCTION dbo.uf_LayDanhSachNhom()
 RETURNs TABLE
 	AS RETURN 
 		SELECT dbo.NHOMHOC.*, dbo.LOPHOC.TenLopHoc, dbo.GIAOVIEN.HoTen as TenGiaoVien
@@ -443,14 +446,13 @@ RETURNs TABLE
 go
 
 --Hàm lấy danh sách nhóm đang dạy
-CREATE OR ALTER FUNCTION uf_LayDanhSachNhom_DangDay(@MaGiaoVien int)
+CREATE OR ALTER FUNCTION dbo.uf_LayDanhSachNhom_DangDay(@MaGiaoVien int)
 RETURNs TABLE
 	AS RETURN 
 		SELECT * 
 		FROM dbo.uf_LayDanhSachNhom() 
 		where MaGiaoVien = @MaGiaoVien
 go
-
 
 --Xóa một lớp học
 CREATE OR ALTER PROC proc_XoaLopHoc
@@ -525,6 +527,15 @@ Begin
 End
 go
 
+--lấy danh sách học viên của một nhóm
+CREATE OR ALTER FUNCTION dbo.func_layDSHocVienNhomHoc(@MaNhomHoc int)
+	RETURNs TABLE
+	AS RETURN 
+		Select DANHSACHNHOM.*, HOCVIEN.TenHocVien
+		From DANHSACHNHOM join HOCVIEN on DANHSACHNHOM.MaHocVien = HOCVIEN.MaHocVien
+		Where DANHSACHNHOM.MaNhomHoc in (@maNhomHoc)
+	go
+
 --Tạo proc chức năng xếp lịch học cho các nhóm học
 
 -------------------------------------------------------------------
@@ -563,4 +574,3 @@ GRANT EXECUTE TO GiaoVien
 GRANT SELECT TO GiaoVien
 
 GRANT SELECT ON uf_LayDanhSachNhom_DangDay TO GiaoVien
-
