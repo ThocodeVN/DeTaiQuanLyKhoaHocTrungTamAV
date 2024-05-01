@@ -23,6 +23,18 @@ namespace QuanLyLopHocTrungTamAV.GUI
         private void FListGroup_Load(object sender, EventArgs e)
         {
              dgvListGroup.DataSource = loginDAO.ListClass();
+            if(dgvListGroup.DataSource != null )
+            {
+                txtGroupID.DataBindings.Add("Text", dgvListGroup.DataSource, "MaNhomHoc");
+            }
+        }
+
+        private void btnScore_Click(object sender, EventArgs e)
+        {
+            FScore score = new FScore(loginDAO, Convert.ToInt32(txtGroupID.Text));
+            this.Hide();
+            this.Show();
+            score.ShowDialog();
         }
     }
 }

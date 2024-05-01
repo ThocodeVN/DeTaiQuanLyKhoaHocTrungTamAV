@@ -21,12 +21,14 @@ namespace QuanLyLopHocTrungTamAV.GUI
             InitializeComponent();
             this.teacher = teacher;
             this.loginDAO = login;
-            //txtGroupID.DataBindings.Add("Text", dgvListClass.DataSource, "MaNhomHoc");
+           
         }
 
         private void FListClass_Load(object sender, EventArgs e)
         {
             dgvListClass.DataSource = loginDAO.ListClassTeaching(teacher);
+            if (dgvListClass != null)
+                txtGroupID.DataBindings.Add("Text", dgvListClass.DataSource, "MaNhomHoc".ToString());
         }
 
         private void btnListStudent_Click(object sender, EventArgs e)

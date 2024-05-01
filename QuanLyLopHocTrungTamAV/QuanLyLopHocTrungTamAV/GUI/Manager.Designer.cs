@@ -33,11 +33,9 @@
             this.gunaLinePanel1 = new Guna.UI.WinForms.GunaLinePanel();
             this.label1 = new System.Windows.Forms.Label();
             this.gunaPanel2 = new Guna.UI.WinForms.GunaPanel();
-            this.label2 = new System.Windows.Forms.Label();
             this.gunaPanel3 = new Guna.UI.WinForms.GunaPanel();
             this.label3 = new System.Windows.Forms.Label();
             this.gunaTileButton6 = new Guna.UI.WinForms.GunaTileButton();
-            this.gunaTileButton4 = new Guna.UI.WinForms.GunaTileButton();
             this.gunaTileButton5 = new Guna.UI.WinForms.GunaTileButton();
             this.gunaTileButton3 = new Guna.UI.WinForms.GunaTileButton();
             this.btnListGroup = new Guna.UI.WinForms.GunaTileButton();
@@ -84,30 +82,18 @@
             // gunaPanel2
             // 
             this.gunaPanel2.BackColor = System.Drawing.Color.Ivory;
-            this.gunaPanel2.Controls.Add(this.gunaTileButton4);
-            this.gunaPanel2.Controls.Add(this.label2);
+            this.gunaPanel2.Controls.Add(this.gunaPanel3);
             this.gunaPanel2.Location = new System.Drawing.Point(2, 434);
             this.gunaPanel2.Name = "gunaPanel2";
             this.gunaPanel2.Size = new System.Drawing.Size(268, 127);
             this.gunaPanel2.TabIndex = 0;
-            // 
-            // label2
-            // 
-            this.label2.Font = new System.Drawing.Font("Ravie", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.OrangeRed;
-            this.label2.Location = new System.Drawing.Point(17, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(244, 29);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "HỌC TẬP";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // gunaPanel3
             // 
             this.gunaPanel3.BackColor = System.Drawing.Color.Ivory;
             this.gunaPanel3.Controls.Add(this.gunaTileButton6);
             this.gunaPanel3.Controls.Add(this.label3);
-            this.gunaPanel3.Location = new System.Drawing.Point(2, 555);
+            this.gunaPanel3.Location = new System.Drawing.Point(0, 12);
             this.gunaPanel3.Name = "gunaPanel3";
             this.gunaPanel3.Size = new System.Drawing.Size(268, 130);
             this.gunaPanel3.TabIndex = 0;
@@ -146,30 +132,6 @@
             this.gunaTileButton6.Size = new System.Drawing.Size(265, 80);
             this.gunaTileButton6.TabIndex = 6;
             this.gunaTileButton6.Text = "QUẢN LÝ NHÓM";
-            // 
-            // gunaTileButton4
-            // 
-            this.gunaTileButton4.AnimationHoverSpeed = 0.07F;
-            this.gunaTileButton4.AnimationSpeed = 0.03F;
-            this.gunaTileButton4.BackColor = System.Drawing.Color.Honeydew;
-            this.gunaTileButton4.BaseColor = System.Drawing.Color.Gainsboro;
-            this.gunaTileButton4.BorderColor = System.Drawing.Color.Black;
-            this.gunaTileButton4.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.gunaTileButton4.FocusedColor = System.Drawing.Color.Empty;
-            this.gunaTileButton4.Font = new System.Drawing.Font("Showcard Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaTileButton4.ForeColor = System.Drawing.Color.Black;
-            this.gunaTileButton4.Image = ((System.Drawing.Image)(resources.GetObject("gunaTileButton4.Image")));
-            this.gunaTileButton4.ImageSize = new System.Drawing.Size(52, 52);
-            this.gunaTileButton4.Location = new System.Drawing.Point(0, 47);
-            this.gunaTileButton4.Name = "gunaTileButton4";
-            this.gunaTileButton4.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
-            this.gunaTileButton4.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.gunaTileButton4.OnHoverForeColor = System.Drawing.Color.Black;
-            this.gunaTileButton4.OnHoverImage = null;
-            this.gunaTileButton4.OnPressedColor = System.Drawing.Color.Black;
-            this.gunaTileButton4.Size = new System.Drawing.Size(268, 80);
-            this.gunaTileButton4.TabIndex = 6;
-            this.gunaTileButton4.Text = "ĐIỂM SỐ";
             // 
             // gunaTileButton5
             // 
@@ -274,7 +236,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Ivory;
             this.ClientSize = new System.Drawing.Size(1206, 686);
-            this.Controls.Add(this.gunaPanel3);
             this.Controls.Add(this.gunaPanel2);
             this.Controls.Add(this.gunaLinePanel1);
             this.Controls.Add(this.gunaPanel1);
@@ -292,13 +253,11 @@
         private Guna.UI.WinForms.GunaPanel gunaPanel1;
         private Guna.UI.WinForms.GunaTileButton gunaTileButton2;
         private Guna.UI.WinForms.GunaLinePanel gunaLinePanel1;
-        private Guna.UI.WinForms.GunaTileButton gunaTileButton4;
         private Guna.UI.WinForms.GunaTileButton gunaTileButton3;
         private Guna.UI.WinForms.GunaTileButton btnListGroup;
         private System.Windows.Forms.Label label1;
         private Guna.UI.WinForms.GunaPanel gunaPanel2;
         private Guna.UI.WinForms.GunaTileButton gunaTileButton5;
-        private System.Windows.Forms.Label label2;
         private Guna.UI.WinForms.GunaPanel gunaPanel3;
         private Guna.UI.WinForms.GunaTileButton gunaTileButton6;
         private System.Windows.Forms.Label label3;

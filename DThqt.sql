@@ -204,6 +204,19 @@ BEGIN
 END
 GO
 
+
+--Kiểm tra ngày điểm danh
+CREATE or ALTER PROC proc_KiemTraNgayDiemDanh
+@day date
+AS
+BEGIN
+	IF(@day not in (Select NgayHoc FROM NGAYHOC))
+	BEGIN
+		INSERT INTO dbo.NGAYHOC VALUES(@day)
+	END
+END
+GO
+
 --trigger kiểm tra một học viên có đăng kí trùng nhóm trong một lớp hay không và có đóng đủ học phí hay chưa ?
 CREATE TRIGGER TG_KiemTraTrungNhom ON DANHSACHNHOM
 AFTER INSERT, UPDATE
@@ -514,8 +527,8 @@ AS RETURN
 	Where DANHSACHNHOM.MaNhomHoc in (@maNhomHoc)
 go
 
---Tạo proc chức năng cập nhật bảng điểm bảng điểm 
-CREATE OR ALTER PROC QUANLYTAIKHOAN
+--Quản Lý Bảng Điểm
+CREATE OR ALTER PROC QUANLYBANGDIEM
 @MaNhomHoc nvarchar(20) = null,
 @MaHocVien varchar(20) = null,
 @DiemGiuaKhoa REAL,
@@ -538,7 +551,45 @@ CREATE OR ALTER FUNCTION dbo.func_layDSHocVienNhomHoc(@MaNhomHoc int)
 
 --Tạo proc chức năng xếp lịch học cho các nhóm học
 
--------------------------------------------------------------------
+--Lấy bảng điểm
+CREATE OR ALTER PROC proc_LapBangDiem (@MaNhomHoc int)
+	AS
+	BEGIN
+		SELECT DANHSACHNHOM.*, HOCVIEN.TenHocVien
+		FROM DANHSACHNHOM join HOCVIEN on DANHSACHNHOM.MaHocVien = HOCVIEN.MaHocVien
+		WHERE DANHSACHNHOM.MaNhomHoc = @MaNhomHoc
+	END
+	Go
+
+exec proc_LapBangDiem 4
+go
+
+--Điểm danh
+CREATE OR ALTER PROC proc_DiemDanhHocVien(
+	@NgayHoc date,
+	@MaNhomHoc varchar(20),
+	@MaHocVien varchar(20),
+	@HienDien BIT)
+AS
+BEGIN
+	if (@NgayHoc not in (select NgayHoc from BANGDIEMDANH))
+	begin
+	Insert into BANGDIEMDANH(NgayHoc, MaNhomHoc, MaHocVien, HienDien) 
+	Values (@NgayHoc, @MaNhomHoc, @MaHocVien, @HienDien);
+	return;
+	end
+		
+	UPDATE BANGDIEMDANH SET HienDien = @HienDien WHERE MaNhomHoc = @MaNhomHoc and MaHocVien = @MaHocVien and NgayHoc = @NgayHoc
+END
+GO
+
+CREATE OR ALTER FUNCTION dbo.uf_LayBangDiemDanh()
+RETURNS TABLE
+AS
+	RETURN 
+	SELECT * FROM BANGDIEMDANH
+GO
+------------------------------------------------------------
 --Tạo role phân các quyền trên table
 
 --Tạo role cho các học viên
@@ -554,6 +605,7 @@ GRANT SELECT, REFERENCES ON NHOMHOC TO HocVien
 GRANT SELECT, REFERENCES ON GIAOVIEN TO HocVien
 GRANT SELECT, REFERENCES ON CAHOC TO HocVien
 GRANT SELECT, REFERENCES ON THONGBAO TO HocVien
+
 GRANT EXECUTE TO HocVien
 GRANT SELECT TO HocVien
 
@@ -574,3 +626,5 @@ GRANT EXECUTE TO GiaoVien
 GRANT SELECT TO GiaoVien
 
 GRANT SELECT ON uf_LayDanhSachNhom_DangDay TO GiaoVien
+GRANT SELECT ON dbo.func_layDSHocVienNhomHoc TO GiaoVien
+GRANT SELECT, INSERT, REFERENCES ON NgayHoc TO GiaoVien

@@ -2,12 +2,14 @@
 using DevExpress.XtraEditors.Mask.Design;
 using QuanLyLopHocTrungTamAV.DTO;
 using QuanLyLopHocTrungTamAV.GUI;
+using QuanLyLopHocTrungTamAV.GUI.Admin;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Globalization;
 using System.Linq;
+using System.Security.RightsManagement;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -52,7 +54,6 @@ namespace QuanLyLopHocTrungTamAV.DAO
                 MessageBox.Show(exc.Message);
                 matk = "Đăng nhập thất bại";
             }
-            MessageBox.Show(matk);
             return matk;
         }
 
@@ -99,7 +100,6 @@ namespace QuanLyLopHocTrungTamAV.DAO
             if (dt.Rows.Count > 0)
             {
                 DataRow dr = dt.Rows[0];
-                MessageBox.Show(dr["DiaChi"].ToString());
                 teacher = new RegisterDTO(dr["HoTen"].ToString(),Convert.ToDateTime(dr["NgaySinh"]), dr["GioiTinh"].ToString(), dr["DiaChi"].ToString(), dr["SoDienThoai"].ToString(), dr["Email"].ToString());
                 teacher.Id = Convert.ToInt32(dr["MaGiaoVien"]);
             }
@@ -110,7 +110,6 @@ namespace QuanLyLopHocTrungTamAV.DAO
         {
             try
             {
-                MessageBox.Show(teacher.Id.ToString());
                 string sqlStr = string.Format("SELECT * FROM dbo.uf_LayDanhSachNhom_DangDay(@MaGiaoVien)");
                 SqlCommand cmd = new SqlCommand(sqlStr, conn);
                 cmd.Parameters.AddWithValue("@MaGiaoVien", teacher.Id);
@@ -155,10 +154,71 @@ namespace QuanLyLopHocTrungTamAV.DAO
             string sqlStr = string.Format("SELECT * FROM dbo.func_layDSHocVienNhomHoc(@MaNhomHoc)");
             SqlCommand cmd = new SqlCommand(sqlStr, conn);
             cmd.Parameters.AddWithValue("@MaNhomHoc", MaNhomHoc);
-            object result = cmd.ExecuteScalar();
-            DataTable list = new DataTable();
-            list = result as DataTable;
-            return list;
+            using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+            {
+                DataTable list = new DataTable();
+                adapter.Fill(list);
+
+                if (list.Rows.Count == 0)
+                {
+                    MessageBox.Show("Không có dữ liệu.");
+                }
+                return list;
+            }
         }    
+
+        public DataTable GetScoreOfGroup(int MaNhomHoc) 
+        {
+            string sqlStr = string.Format("EXEC proc_LapBangDiem @MaNhomHoc");
+            SqlCommand cmd = new SqlCommand(sqlStr, conn);
+            cmd.Parameters.AddWithValue("@MaNhomHoc", MaNhomHoc);
+            using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+            {
+                DataTable list = new DataTable();
+                adapter.Fill(list);
+
+                if (list.Rows.Count == 0)
+                {
+                    MessageBox.Show("Không có dữ liệu.");
+                }
+                return list;
+            }
+        }
+
+        public void CheckStudent(int MaNhomHoc, int MaHocVien, int HienDien, DateTime NgayHoc)
+        {
+            string sqlStr = string.Format("EXEC proc_DiemDanhHocVien @NgayHoc, @MaNhomHoc, @MaHocVien, @HienDien");
+            SqlCommand cmd = new SqlCommand(sqlStr, conn);
+            cmd.Parameters.AddWithValue("@MaNhomHoc", MaNhomHoc);
+            cmd.Parameters.AddWithValue("@MaHocVien", MaHocVien);
+            cmd.Parameters.AddWithValue("@HienDien", HienDien);
+            cmd.Parameters.AddWithValue("@NgayHoc", NgayHoc);
+            cmd.ExecuteNonQuery();
+        }
+
+        public DataTable GetListCheck()
+        {
+            string sqlStr = string.Format("SELECT * FROM dbo.uf_LayBangDiemDanh()");
+            SqlCommand cmd = new SqlCommand(sqlStr, conn);
+            using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+            {
+                DataTable list = new DataTable();
+                adapter.Fill(list);
+
+                if (list.Rows.Count == 0)
+                {
+                    MessageBox.Show("Không có dữ liệu.");
+                }
+                return list;
+            }
+        }
+
+        public void CheckDate(DateTime date)
+        {
+            string sqlStr = string.Format("EXEC proc_KiemTraNgayDiemDanh @day");
+            SqlCommand cmd = new SqlCommand(sqlStr, conn);
+            cmd.Parameters.AddWithValue("@day", date);
+            cmd.ExecuteNonQuery();
+        }
     }
 }

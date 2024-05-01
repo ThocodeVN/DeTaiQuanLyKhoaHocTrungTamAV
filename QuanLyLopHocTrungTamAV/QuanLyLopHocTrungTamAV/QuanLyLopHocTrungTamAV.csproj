@@ -98,11 +98,23 @@
     <Compile Include="GUI\FListStudent.Designer.cs">
       <DependentUpon>FListStudent.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\FNotification.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FNotification.Designer.cs">
+      <DependentUpon>FNotification.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\FRegister.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\FRegister.Designer.cs">
       <DependentUpon>FRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FScore.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FScore.Designer.cs">
+      <DependentUpon>FScore.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Manager.cs">
       <SubType>Form</SubType>
@@ -137,6 +149,12 @@
     <Compile Include="MyDataBase.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UCNotification.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCNotification.Designer.cs">
+      <DependentUpon>UCNotification.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="FirstForm.resx">
       <DependentUpon>FirstForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -152,8 +170,14 @@
     <EmbeddedResource Include="GUI\FListStudent.resx">
       <DependentUpon>FListStudent.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FNotification.resx">
+      <DependentUpon>FNotification.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\FRegister.resx">
       <DependentUpon>FRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FScore.resx">
+      <DependentUpon>FScore.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Manager.resx">
       <DependentUpon>Manager.cs</DependentUpon>
@@ -181,6 +205,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UCNotification.resx">
+      <DependentUpon>UCNotification.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
