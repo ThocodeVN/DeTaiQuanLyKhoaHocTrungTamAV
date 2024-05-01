@@ -28,17 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.fpnlShowNote = new System.Windows.Forms.FlowLayoutPanel();
             this.btnCreateNote = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // flowLayoutPanel1
+            // fpnlShowNote
             // 
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 53);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(818, 547);
-            this.flowLayoutPanel1.TabIndex = 0;
+            this.fpnlShowNote.AutoScroll = true;
+            this.fpnlShowNote.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.fpnlShowNote.Location = new System.Drawing.Point(0, 53);
+            this.fpnlShowNote.Name = "fpnlShowNote";
+            this.fpnlShowNote.Size = new System.Drawing.Size(818, 547);
+            this.fpnlShowNote.TabIndex = 0;
             // 
             // btnCreateNote
             // 
@@ -48,6 +49,7 @@
             this.btnCreateNote.TabIndex = 1;
             this.btnCreateNote.Text = "Tạo Thông Báo";
             this.btnCreateNote.UseVisualStyleBackColor = true;
+            this.btnCreateNote.Click += new System.EventHandler(this.btnCreateNote_Click);
             // 
             // FNotification
             // 
@@ -55,16 +57,17 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(818, 600);
             this.Controls.Add(this.btnCreateNote);
-            this.Controls.Add(this.flowLayoutPanel1);
+            this.Controls.Add(this.fpnlShowNote);
             this.Name = "FNotification";
             this.Text = "FNotification";
+            this.Load += new System.EventHandler(this.FNotification_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.FlowLayoutPanel fpnlShowNote;
         private System.Windows.Forms.Button btnCreateNote;
     }
 }

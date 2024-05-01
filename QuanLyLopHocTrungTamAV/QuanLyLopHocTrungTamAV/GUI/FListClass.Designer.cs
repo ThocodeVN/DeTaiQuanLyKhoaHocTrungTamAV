@@ -28,21 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgvListClass = new System.Windows.Forms.DataGridView();
             this.txtGroupID = new System.Windows.Forms.TextBox();
             this.btnListStudent = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvListClass)).BeginInit();
+            this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
+            this.dgvlist = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvlist)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dgvListClass
-            // 
-            this.dgvListClass.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListClass.Location = new System.Drawing.Point(311, 12);
-            this.dgvListClass.Name = "dgvListClass";
-            this.dgvListClass.RowHeadersWidth = 51;
-            this.dgvListClass.RowTemplate.Height = 24;
-            this.dgvListClass.Size = new System.Drawing.Size(571, 535);
-            this.dgvListClass.TabIndex = 0;
             // 
             // txtGroupID
             // 
@@ -61,27 +52,49 @@
             this.btnListStudent.UseVisualStyleBackColor = true;
             this.btnListStudent.Click += new System.EventHandler(this.btnListStudent_Click);
             // 
+            // gunaLabel1
+            // 
+            this.gunaLabel1.AutoSize = true;
+            this.gunaLabel1.Font = new System.Drawing.Font("Showcard Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gunaLabel1.Location = new System.Drawing.Point(84, 22);
+            this.gunaLabel1.Name = "gunaLabel1";
+            this.gunaLabel1.Size = new System.Drawing.Size(112, 18);
+            this.gunaLabel1.TabIndex = 3;
+            this.gunaLabel1.Text = "Mã nhóm học";
+            // 
+            // dgvlist
+            // 
+            this.dgvlist.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvlist.Location = new System.Drawing.Point(309, 12);
+            this.dgvlist.Name = "dgvlist";
+            this.dgvlist.RowHeadersWidth = 51;
+            this.dgvlist.RowTemplate.Height = 24;
+            this.dgvlist.Size = new System.Drawing.Size(573, 535);
+            this.dgvlist.TabIndex = 4;
+            // 
             // FListClass
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FloralWhite;
             this.ClientSize = new System.Drawing.Size(894, 559);
+            this.Controls.Add(this.dgvlist);
+            this.Controls.Add(this.gunaLabel1);
             this.Controls.Add(this.btnListStudent);
             this.Controls.Add(this.txtGroupID);
-            this.Controls.Add(this.dgvListClass);
             this.Name = "FListClass";
             this.Text = "FListClass";
             this.Load += new System.EventHandler(this.FListClass_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvListClass)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvlist)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dgvListClass;
         private System.Windows.Forms.TextBox txtGroupID;
         private System.Windows.Forms.Button btnListStudent;
+        private Guna.UI.WinForms.GunaLabel gunaLabel1;
+        private System.Windows.Forms.DataGridView dgvlist;
     }
 }

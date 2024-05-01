@@ -80,6 +80,36 @@
     <Compile Include="GUI\dsachid.Designer.cs">
       <DependentUpon>dsachid.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\FCourse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FCourse.Designer.cs">
+      <DependentUpon>FCourse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FCreateClass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FCreateClass.Designer.cs">
+      <DependentUpon>FCreateClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FCreateCourse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FCreateCourse.Designer.cs">
+      <DependentUpon>FCreateCourse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FCreateGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FCreateGroup.Designer.cs">
+      <DependentUpon>FCreateGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FCreateNote.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FCreateNote.Designer.cs">
+      <DependentUpon>FCreateNote.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\FListClass.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -160,6 +190,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\dsachid.resx">
       <DependentUpon>dsachid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FCourse.resx">
+      <DependentUpon>FCourse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FCreateClass.resx">
+      <DependentUpon>FCreateClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FCreateCourse.resx">
+      <DependentUpon>FCreateCourse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FCreateGroup.resx">
+      <DependentUpon>FCreateGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FCreateNote.resx">
+      <DependentUpon>FCreateNote.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FListClass.resx">
       <DependentUpon>FListClass.cs</DependentUpon>

@@ -31,21 +31,21 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
             this.gunaGradient2Panel1 = new Guna.UI.WinForms.GunaGradient2Panel();
-            this.gunaCirclePictureBox1 = new Guna.UI.WinForms.GunaCirclePictureBox();
             this.txt_Username = new Guna.UI.WinForms.GunaLineTextBox();
             this.gunaGradient2Panel2 = new Guna.UI.WinForms.GunaGradient2Panel();
-            this.gunaCirclePictureBox2 = new Guna.UI.WinForms.GunaCirclePictureBox();
             this.txt_Password = new Guna.UI.WinForms.GunaLineTextBox();
-            this.gunaPictureBox1 = new Guna.UI.WinForms.GunaPictureBox();
-            this.btnLogin = new Guna.UI.WinForms.GunaGradientButton();
             this.rbtnStudent = new Guna.UI.WinForms.GunaRadioButton();
             this.rbtnTeacher = new Guna.UI.WinForms.GunaRadioButton();
             this.rbtnAdmin = new Guna.UI.WinForms.GunaRadioButton();
             this.btnSignUp = new Guna.UI.WinForms.GunaGradientButton();
+            this.btnLogin = new Guna.UI.WinForms.GunaGradientButton();
+            this.gunaCirclePictureBox2 = new Guna.UI.WinForms.GunaCirclePictureBox();
+            this.gunaCirclePictureBox1 = new Guna.UI.WinForms.GunaCirclePictureBox();
+            this.gunaPictureBox1 = new Guna.UI.WinForms.GunaPictureBox();
             this.gunaGradient2Panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gunaCirclePictureBox1)).BeginInit();
             this.gunaGradient2Panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gunaCirclePictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gunaCirclePictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -70,18 +70,6 @@
             this.gunaGradient2Panel1.Name = "gunaGradient2Panel1";
             this.gunaGradient2Panel1.Size = new System.Drawing.Size(326, 41);
             this.gunaGradient2Panel1.TabIndex = 5;
-            // 
-            // gunaCirclePictureBox1
-            // 
-            this.gunaCirclePictureBox1.BaseColor = System.Drawing.Color.White;
-            this.gunaCirclePictureBox1.Image = global::QuanLyLopHocTrungTamAV.Properties.Resources.idea;
-            this.gunaCirclePictureBox1.Location = new System.Drawing.Point(22, 3);
-            this.gunaCirclePictureBox1.Name = "gunaCirclePictureBox1";
-            this.gunaCirclePictureBox1.Size = new System.Drawing.Size(36, 35);
-            this.gunaCirclePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.gunaCirclePictureBox1.TabIndex = 2;
-            this.gunaCirclePictureBox1.TabStop = false;
-            this.gunaCirclePictureBox1.UseTransfarantBackground = false;
             // 
             // txt_Username
             // 
@@ -110,18 +98,6 @@
             this.gunaGradient2Panel2.Size = new System.Drawing.Size(326, 41);
             this.gunaGradient2Panel2.TabIndex = 6;
             // 
-            // gunaCirclePictureBox2
-            // 
-            this.gunaCirclePictureBox2.BaseColor = System.Drawing.Color.White;
-            this.gunaCirclePictureBox2.Image = global::QuanLyLopHocTrungTamAV.Properties.Resources.padlock;
-            this.gunaCirclePictureBox2.Location = new System.Drawing.Point(22, 3);
-            this.gunaCirclePictureBox2.Name = "gunaCirclePictureBox2";
-            this.gunaCirclePictureBox2.Size = new System.Drawing.Size(36, 35);
-            this.gunaCirclePictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.gunaCirclePictureBox2.TabIndex = 2;
-            this.gunaCirclePictureBox2.TabStop = false;
-            this.gunaCirclePictureBox2.UseTransfarantBackground = false;
-            // 
             // txt_Password
             // 
             this.txt_Password.BackColor = System.Drawing.Color.White;
@@ -136,43 +112,6 @@
             this.txt_Password.Size = new System.Drawing.Size(187, 30);
             this.txt_Password.TabIndex = 1;
             this.txt_Password.Text = "Mật khẩu";
-            // 
-            // gunaPictureBox1
-            // 
-            this.gunaPictureBox1.BaseColor = System.Drawing.Color.White;
-            this.gunaPictureBox1.Image = global::QuanLyLopHocTrungTamAV.Properties.Resources.Logo;
-            this.gunaPictureBox1.Location = new System.Drawing.Point(0, -1);
-            this.gunaPictureBox1.Name = "gunaPictureBox1";
-            this.gunaPictureBox1.Size = new System.Drawing.Size(428, 451);
-            this.gunaPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.gunaPictureBox1.TabIndex = 2;
-            this.gunaPictureBox1.TabStop = false;
-            // 
-            // btnLogin
-            // 
-            this.btnLogin.AnimationHoverSpeed = 0.07F;
-            this.btnLogin.AnimationSpeed = 0.03F;
-            this.btnLogin.BaseColor1 = System.Drawing.Color.LightCyan;
-            this.btnLogin.BaseColor2 = System.Drawing.Color.Crimson;
-            this.btnLogin.BorderColor = System.Drawing.Color.Black;
-            this.btnLogin.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnLogin.FocusedColor = System.Drawing.Color.Empty;
-            this.btnLogin.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnLogin.ForeColor = System.Drawing.Color.White;
-            this.btnLogin.Image = ((System.Drawing.Image)(resources.GetObject("btnLogin.Image")));
-            this.btnLogin.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnLogin.Location = new System.Drawing.Point(543, 313);
-            this.btnLogin.Name = "btnLogin";
-            this.btnLogin.OnHoverBaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(145)))), ((int)(((byte)(221)))));
-            this.btnLogin.OnHoverBaseColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(85)))), ((int)(((byte)(255)))));
-            this.btnLogin.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.btnLogin.OnHoverForeColor = System.Drawing.Color.White;
-            this.btnLogin.OnHoverImage = null;
-            this.btnLogin.OnPressedColor = System.Drawing.Color.Black;
-            this.btnLogin.Size = new System.Drawing.Size(160, 42);
-            this.btnLogin.TabIndex = 7;
-            this.btnLogin.Text = "Login";
-            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // rbtnStudent
             // 
@@ -235,6 +174,67 @@
             this.btnSignUp.TabIndex = 11;
             this.btnSignUp.Text = "Sign Up";
             // 
+            // btnLogin
+            // 
+            this.btnLogin.AnimationHoverSpeed = 0.07F;
+            this.btnLogin.AnimationSpeed = 0.03F;
+            this.btnLogin.BaseColor1 = System.Drawing.Color.LightCyan;
+            this.btnLogin.BaseColor2 = System.Drawing.Color.Crimson;
+            this.btnLogin.BorderColor = System.Drawing.Color.Black;
+            this.btnLogin.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnLogin.FocusedColor = System.Drawing.Color.Empty;
+            this.btnLogin.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnLogin.ForeColor = System.Drawing.Color.White;
+            this.btnLogin.Image = ((System.Drawing.Image)(resources.GetObject("btnLogin.Image")));
+            this.btnLogin.ImageSize = new System.Drawing.Size(20, 20);
+            this.btnLogin.Location = new System.Drawing.Point(543, 313);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.OnHoverBaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(145)))), ((int)(((byte)(221)))));
+            this.btnLogin.OnHoverBaseColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(85)))), ((int)(((byte)(255)))));
+            this.btnLogin.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btnLogin.OnHoverForeColor = System.Drawing.Color.White;
+            this.btnLogin.OnHoverImage = null;
+            this.btnLogin.OnPressedColor = System.Drawing.Color.Black;
+            this.btnLogin.Size = new System.Drawing.Size(160, 42);
+            this.btnLogin.TabIndex = 7;
+            this.btnLogin.Text = "Login";
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            // 
+            // gunaCirclePictureBox2
+            // 
+            this.gunaCirclePictureBox2.BaseColor = System.Drawing.Color.White;
+            this.gunaCirclePictureBox2.Image = global::QuanLyLopHocTrungTamAV.Properties.Resources.padlock;
+            this.gunaCirclePictureBox2.Location = new System.Drawing.Point(22, 3);
+            this.gunaCirclePictureBox2.Name = "gunaCirclePictureBox2";
+            this.gunaCirclePictureBox2.Size = new System.Drawing.Size(36, 35);
+            this.gunaCirclePictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.gunaCirclePictureBox2.TabIndex = 2;
+            this.gunaCirclePictureBox2.TabStop = false;
+            this.gunaCirclePictureBox2.UseTransfarantBackground = false;
+            // 
+            // gunaCirclePictureBox1
+            // 
+            this.gunaCirclePictureBox1.BaseColor = System.Drawing.Color.White;
+            this.gunaCirclePictureBox1.Image = global::QuanLyLopHocTrungTamAV.Properties.Resources.idea;
+            this.gunaCirclePictureBox1.Location = new System.Drawing.Point(22, 3);
+            this.gunaCirclePictureBox1.Name = "gunaCirclePictureBox1";
+            this.gunaCirclePictureBox1.Size = new System.Drawing.Size(36, 35);
+            this.gunaCirclePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.gunaCirclePictureBox1.TabIndex = 2;
+            this.gunaCirclePictureBox1.TabStop = false;
+            this.gunaCirclePictureBox1.UseTransfarantBackground = false;
+            // 
+            // gunaPictureBox1
+            // 
+            this.gunaPictureBox1.BaseColor = System.Drawing.Color.White;
+            this.gunaPictureBox1.Image = global::QuanLyLopHocTrungTamAV.Properties.Resources.Logo;
+            this.gunaPictureBox1.Location = new System.Drawing.Point(0, -1);
+            this.gunaPictureBox1.Name = "gunaPictureBox1";
+            this.gunaPictureBox1.Size = new System.Drawing.Size(428, 451);
+            this.gunaPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.gunaPictureBox1.TabIndex = 2;
+            this.gunaPictureBox1.TabStop = false;
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -253,10 +253,11 @@
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
+            this.Load += new System.EventHandler(this.Login_Load);
             this.gunaGradient2Panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gunaCirclePictureBox1)).EndInit();
             this.gunaGradient2Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gunaCirclePictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gunaCirclePictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

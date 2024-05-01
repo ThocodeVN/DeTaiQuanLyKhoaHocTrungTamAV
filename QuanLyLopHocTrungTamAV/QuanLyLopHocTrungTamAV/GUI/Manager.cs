@@ -22,7 +22,31 @@ namespace QuanLyLopHocTrungTamAV.GUI.Admin
 
         private void btnListGroup_Click(object sender, EventArgs e)
         {
+            FCourse f = new FCourse(loginDAO, 3);
+            this.Hide();
+            this.Show();
+            f.ShowDialog();
+        }
+
+        private void btnScoreMan_Click(object sender, EventArgs e)
+        {
             FListGroup f = new FListGroup(loginDAO);
+            this.Hide();
+            this.Show();
+            f.ShowDialog();
+        }
+
+        private void btnCourse_Click(object sender, EventArgs e)
+        {
+            FCourse f = new FCourse(loginDAO, 1);
+            this.Hide();
+            this.Show();
+            f.ShowDialog();
+        }
+
+        private void btnClass_Click(object sender, EventArgs e)
+        {
+            FCourse f = new FCourse(loginDAO, 2);
             this.Hide();
             this.Show();
             f.ShowDialog();

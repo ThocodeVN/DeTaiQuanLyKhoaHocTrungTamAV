@@ -37,23 +37,23 @@
             // dgvListGroup
             // 
             this.dgvListGroup.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListGroup.Location = new System.Drawing.Point(220, 12);
+            this.dgvListGroup.Location = new System.Drawing.Point(229, 12);
             this.dgvListGroup.Name = "dgvListGroup";
             this.dgvListGroup.RowHeadersWidth = 51;
             this.dgvListGroup.RowTemplate.Height = 24;
-            this.dgvListGroup.Size = new System.Drawing.Size(656, 568);
+            this.dgvListGroup.Size = new System.Drawing.Size(647, 568);
             this.dgvListGroup.TabIndex = 0;
             // 
             // txtGroupID
             // 
             this.txtGroupID.Location = new System.Drawing.Point(29, 48);
             this.txtGroupID.Name = "txtGroupID";
-            this.txtGroupID.Size = new System.Drawing.Size(117, 22);
+            this.txtGroupID.Size = new System.Drawing.Size(179, 22);
             this.txtGroupID.TabIndex = 1;
             // 
             // btnScore
             // 
-            this.btnScore.Location = new System.Drawing.Point(29, 135);
+            this.btnScore.Location = new System.Drawing.Point(29, 98);
             this.btnScore.Name = "btnScore";
             this.btnScore.Size = new System.Drawing.Size(105, 83);
             this.btnScore.TabIndex = 2;

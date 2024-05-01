@@ -26,9 +26,9 @@ namespace QuanLyLopHocTrungTamAV.GUI
 
         private void FListClass_Load(object sender, EventArgs e)
         {
-            dgvListClass.DataSource = loginDAO.ListClassTeaching(teacher);
-            if (dgvListClass != null)
-                txtGroupID.DataBindings.Add("Text", dgvListClass.DataSource, "MaNhomHoc".ToString());
+            dgvlist.DataSource = loginDAO.ListClassTeaching(teacher);
+            if (dgvlist != null)
+                txtGroupID.DataBindings.Add("Text", dgvlist.DataSource, "MaNhomHoc".ToString());
         }
 
         private void btnListStudent_Click(object sender, EventArgs e)

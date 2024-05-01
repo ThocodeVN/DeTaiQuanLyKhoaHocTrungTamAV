@@ -54,14 +54,15 @@ namespace QuanLyLopHocTrungTamAV.GUI
             
             if(role == "Quyen2")
             {
-                Student st = new Student();
+                RegisterDTO std = loginDAO.GetOneStudent(result);
+                Student student = new Student(std, loginDAO);
                 this.Hide();
                 this.Show();
-                DialogResult rs = st.ShowDialog();
-                if(rs == DialogResult.Cancel)
+                DialogResult rs = student.ShowDialog();
+                if (rs == DialogResult.Cancel)
                 {
                     loginDAO.CloseConnection();
-                }    
+                }
             }
 
             if (role == "Quyen1")
@@ -88,6 +89,11 @@ namespace QuanLyLopHocTrungTamAV.GUI
                     loginDAO.CloseConnection();
                 }
             }
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

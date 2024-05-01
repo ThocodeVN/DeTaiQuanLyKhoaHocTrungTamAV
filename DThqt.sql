@@ -118,6 +118,10 @@ CREATE TABLE TRUYENTIN(
 	CONSTRAINT PK_TRUYENTIN PRIMARY KEY (MaThongBao, MaNhomHoc)
 )
 
+alter table TRUYENTIN add MaGui int constraint PK_TRUYENTIN primary key IDENTITY
+alter table TRUYENTIN drop  PK_TRUYENTIN 
+alter table TRUYENTIN drop  column MaGui 
+
 --Bảng Ngày Học
 CREATE TABLE NGAYHOC(
 	NgayHoc DATE constraint PK_NGAYHOC PRIMARY KEY,
@@ -201,19 +205,6 @@ BEGIN
 			RAISERROR('HỌC VIÊN ĐÃ THAM GIA KHÓA HỌC NÀY!',16,1);
 		ROLLBACK;
 		END
-END
-GO
-
-
---Kiểm tra ngày điểm danh
-CREATE or ALTER PROC proc_KiemTraNgayDiemDanh
-@day date
-AS
-BEGIN
-	IF(@day not in (Select NgayHoc FROM NGAYHOC))
-	BEGIN
-		INSERT INTO dbo.NGAYHOC VALUES(@day)
-	END
 END
 GO
 
@@ -405,23 +396,17 @@ BEGIN
 END
 go
 
----- Procedure Thêm tài khoản
---CREATE or ALTER PROCEDURE proc_ThemTaiKhoan
---	@TenDangNhap varchar(20),
---	@MatKhau varchar(20),
---	@QuyenNguoiDung varchar(20)
---AS
---BEGIN
---	Begin Try
---		INSERT INTO dbo.TAIKHOAN VALUES(@TenDangNhap, @MatKhau, @QuyenNguoiDung)
---	End try
---	Begin catch
---		declare @mess varchar(max)
---		set @mess=ERROR_MESSAGE()
---		Raiserror(@mess, 16, 1)
---	end catch
---END
---GO
+--Kiểm tra ngày điểm danh
+CREATE or ALTER PROC proc_KiemTraNgayDiemDanh
+@day date
+AS
+BEGIN
+	IF(@day not in (Select NgayHoc FROM NGAYHOC))
+	BEGIN
+		INSERT INTO dbo.NGAYHOC VALUES(@day)
+	END
+END
+GO
 
 -- procedure quản lý tài khoản
 CREATE OR ALTER PROC QUANLYTAIKHOAN
@@ -485,29 +470,40 @@ END
 GO
 
 --Giáo viên tạo thông báo
-CREATE OR ALTER PROC proc_XoaLopHoc
-	@MaLopHoc varchar(20)
+CREATE or ALTER PROCEDURE proc_ThemThongBao
+	@MaGiaoVien int,
+	@TieuDe nvarchar(50),
+	@NoiDung nvarchar(255)
 AS
 BEGIN
-	Begin try
-		Delete from LOPHOC
-		where MaLopHoc = @MaLopHoc
+	Begin Try
+		INSERT INTO dbo.THONGBAO (MaGiaoVien, TieuDe, NoiDung, NgayGui) VALUES(@MaGiaoVien, @TieuDe, @NoiDung, GETDATE())
 	End try
 	Begin catch
-		print N'Không xóa được'
-		print ERROR_MESSAGE()
-		Rollback Tran delete_Empl
-	End catch
+		declare @mess varchar(max)
+		set @mess=ERROR_MESSAGE()
+		Raiserror(@mess, 16, 1)
+	end catch
 END
+GO
+
+-- Xem thông báo được tạo bởi một giáo viên
+CREATE or ALTER FUNCTION uf_XemThongBaoGiaoVien (@MaGiaoVien int)
+RETURNS TABLE
+AS
+	RETURN
+	SELECT * FROM THONGBAO WHERE MaGiaoVien = @MaGiaoVien
 GO
 
 --Giáo viên gửi cho một nhóm học nào đó
 CREATE or ALTER PROCEDURE proc_ThemTruyenTin
-	@MaThongBao varchar(20),
-	@MaNhomHoc varchar(20)
+	@MaNhomHoc int
 AS
 BEGIN
+	DECLARE @MaThongBao int
 	Begin Try
+		SELECT TOP 1 @MaThongBao = MaThongBao FROM THONGBAO
+		ORDER BY NgayGui DESC
 		INSERT INTO dbo.TRUYENTIN VALUES(@MaThongBao, @MaNhomHoc)
 	End try
 	Begin catch
@@ -588,6 +584,50 @@ RETURNS TABLE
 AS
 	RETURN 
 	SELECT * FROM BANGDIEMDANH
+GO
+
+--Sửa thông tin học viên
+CREATE or ALTER PROC proc_SuaThongTinHocVien
+	@MaHocVien int,
+	@TenHocVien nvarchar(50),
+	@NgaySinh DATE,
+	@GioiTinh nvarchar(20),
+	@DiaChi nvarchar(100),
+	@SoDienThoai varchar(20)
+AS
+BEGIN
+	Begin try
+		UPDATE HOCVIEN
+		SET TenHocVien = @TenHocVien, NgaySinh = @NgaySinh, GioiTinh = @GioiTinh, DiaChi = @DiaChi, SoDienThoai = @SoDienThoai
+		WHERE MaHocVien = @MaHocVien
+		PRINT @ma
+	End try
+	Begin catch
+		declare @mess varchar(max)
+		set @mess=ERROR_MESSAGE()
+		Raiserror(@mess, 16, 1)
+	End catch
+END
+GO
+
+EXEC proc_SuaThongTinHocVien 1, 'Thanh' ,'2004-01-01','Nam', 'binh phuoc', '1234567890'
+GO
+
+--Lấy danh sách khóa
+CREATE OR ALTER FUNCTION dbo.uf_LayDanhSachKhoa()
+RETURNS TABLE
+AS
+	RETURN
+	SELECT * FROM KHOAHOC
+GO
+
+
+--Lấy danh sách khóa
+CREATE OR ALTER FUNCTION dbo.uf_LayDanhSachLop()
+RETURNS TABLE
+AS
+	RETURN
+	SELECT * FROM LOPHOC
 GO
 ------------------------------------------------------------
 --Tạo role phân các quyền trên table

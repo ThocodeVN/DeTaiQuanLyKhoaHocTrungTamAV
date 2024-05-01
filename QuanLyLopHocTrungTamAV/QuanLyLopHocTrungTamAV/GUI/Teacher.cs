@@ -46,5 +46,26 @@ namespace QuanLyLopHocTrungTamAV.GUI
             this.Show();
             f.ShowDialog();
         }
+
+        private void btnNotification_Click(object sender, EventArgs e)
+        {
+            FNotification f = new FNotification(teacher, loginDAO, "GiaoVien");
+            this.Hide();
+            this.Show();
+            f.ShowDialog();
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            teacher.Name = txtName.Text;
+            teacher.Sex = txtSex.Text;
+            teacher.Phone = txtPhone.Text;
+            teacher.Email = txtEmail.Text;
+            teacher.Address = txtAddress.Text;
+            teacher.Date = dtpBirth.Value;
+            loginDAO.UpdateInforTeacher(teacher);
+            MessageBox.Show("Sửa thông tin thành công, chúc mừng bạn");
+            Teacher_Load(sender, e);
+        }
     }
 }

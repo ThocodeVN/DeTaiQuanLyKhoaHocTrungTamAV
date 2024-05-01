@@ -118,10 +118,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="gunaTileButton5.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnClass.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vwAADr8BOAVTJAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAIVSSURBVHhe7d0H
+        vAAADrwBlbxySQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAIVSSURBVHhe7d0H
         mBRVujfwnZyHCUxkGCaQc5CcsyBJEAOigiIIJlQUc1wVjIgBc87ZzbtuNuvmePduzrt3481377d7z/e+
         7Q4LzL+q61RXVVd3/9/n+T0+j3Sdqq5TU+ftqhM+wGAwGAwGg8FgMBgMBoPBYDAYDAaDwWAwGAwGg8Fg
         MBgMBoPBYDAYDAaDwWAwGAwGg8FgMBgMBoPBYDAYDAaDwWAwGAwGg8FgMBgMBoPBYDAYDAaDwWAwGAwG
@@ -694,10 +694,10 @@
         gg==
 </value>
   </data>
-  <data name="gunaTileButton3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnCourse.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vwAADr8BOAVTJAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAFNTSURBVHhe7d0H
+        vAAADrwBlbxySQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAFNTSURBVHhe7d0H
         mCVVmf/x6Z5O0z0zHSfnnENPzj05h56Z7sk5MWREgoKKuK6iIooBRUV3DatrQBQQkWgCBUUliAiYA7iG
         dd3g7n/X8z9vYeMA73RX1a06Fe739zyf59Gm59a9dU+d8/a9VW91I4QQQgghhBBCCCGEEEIIIYQQQggh
         hBBCCCGEpDf11gSrxdpqtVv7/kr+t/xM/pv8jvwuIYQQQjKUntZS61LrY9a3rH+zTEB/tB605DEusaQ4
@@ -1059,7 +1059,7 @@
   <data name="btnListGroup.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vwAADr8BOAVTJAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAK7vSURBVHhe7d0F
+        vAAADrwBlbxySQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAK7vSURBVHhe7d0F
         mB3VsjbgyfjEM3F3d3d3d3d3d/cQw0IIEAghEBIIhECCS3B3dzu4OwevW9Wc4Q6Tb2avtq1Vz/P+/7lh
         du/utbp71e5eEqehoaERxMjHWrHxbCO7kt3KHmdv/88X7Gv2/v/+72fYk+xmdhFbzcYy2U5epqGhoaGh
         oRFmUZVNY4fZa+xPRh6S7b3KjrCFrA7T0NDQ0NDQCHIksA7sfPYeQ4223z5kB9gglso0NDQ0NDQ0fIrq
@@ -1812,7 +1812,7 @@
   <data name="gunaTileButton2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vgAADr4B6kKxwAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAEu8SURBVHhe7b0H
+        vAAADrwBlbxySQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAEu8SURBVHhe7b0H
         dFRXnufv3v/+//vfPXvOzv+cnQY8PbO93Ub0rHdnpvP0dALJObTbsduebpuMAWPAxtiAyDnnnAQIhLLI
         GRGEhAIoIQkJRxyxMQaTk+//3ZIKS6VflV6VXqnerfp8zvmc6TGqF+6rd3/feuHeuwAAAAAAAAAAAAAA
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -2139,10 +2139,10 @@
         k8XSdVvokwAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="gunaTileButton6.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnScoreMan.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vgAADr4B6kKxwAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAHu8SURBVHhe7d0H
+        vAAADrwBlbxySQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAHu8SURBVHhe7d0H
         dBT3tQZwY9wdO3Hi9PKS2E5zkpfE6U5eHMdOXCjCNgbUAANCEhJqVINAgOlFoAaiV5WVhIQA9QKog1AB
         021wN713JN33HzFyYHVX7Gpndqd83zm/g+uOtDs7392ddheifGhF1AOUPO/3lDx/ECVFzxd/5lJy9E7h
         A+Gi0CKclh2jlOhaSpmXTinz51DS/KHCr8li6So/HIIgdoTuuqtLSf/uTxd5d/Mq9Ok2pcinu6XIp1ut
